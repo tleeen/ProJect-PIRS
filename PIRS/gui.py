@@ -104,8 +104,6 @@ class App(QWidget):
             if session.Process and session.Process.name() == "python.exe":
                 volume.SetMasterVolume(value * 0.01, None)
 
-    
-
     def show_settings(self):
         self.settings.show()
 

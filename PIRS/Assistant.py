@@ -28,7 +28,6 @@ phrases_for_executing = ["Doing.mp3", "Will_be_done.mp3", "How_say_sir.mp3"]
 phrases_for_web_search = ["Finding_information 1.mp3", "Finding_information 2.mp3", "Request_accepted.mp3"]
 ignored_pr = ["Share", "NVIDIA", "TextInputHost", "Explorer", "explorer"]
 
-
 """ ---> Voice Assistant <--- """
 
 
@@ -66,7 +65,7 @@ class Assistant(QtCore.QObject):
 
     # Automatically adjusts microphone level to the environment
     def adjustment_to_noise(self, duration=1):
-        seconds_per_buffer = FPB/RATE
+        seconds_per_buffer = FPB / RATE
         end_time = 0
         while True:
             end_time += seconds_per_buffer
@@ -109,7 +108,7 @@ class Assistant(QtCore.QObject):
 
     # commands execution
     def cmd(self, task):
-        self.tasks = {
+        tasks = {
             # internet and social networks
             ("открой ютуб", "запусти ютуб"): self.youtube,
             ("открой вк", "запусти вк"): self.vk,
@@ -127,19 +126,21 @@ class Assistant(QtCore.QObject):
 
         self.downloadCommand()
         max_similar = 0  # the coefficient of similarity
-        cmd = ''         # command
+        cmd = ''  # command
         search_tags = ("как", "кто такой", "кто такая", "что такое", "найди", "ищи", "найти")
 
         # inaccurate search
-        for ls in self.tasks:
+        for ls in tasks:
             for i in ls:
                 rate_similar = fuzz.ratio(task, i)
                 if rate_similar > 75 and rate_similar > max_similar:
                     max_similar = rate_similar
                     cmd = ls
         try:
-            try: self.open_site(self.tasks[cmd])
-            except: self.tasks[cmd]()
+            try:
+                self.open_site(tasks[cmd])
+            except:
+                tasks[cmd]()
         except KeyError:
             for tag in search_tags:
                 if tag in task:
@@ -229,12 +230,12 @@ class Assistant(QtCore.QObject):
         import subprocess
         command = 'powershell "Get-Process | Where-Object {$_.mainWindowTitle} | Format-Table ProcessName"'
         p = subprocess.Popen(command, stdout=subprocess.PIPE)
-        text = str(p.stdout.read()).replace('b', '')\
-                                   .replace("\\r", " ")\
-                                   .replace("\\n", " ")\
-                                   .replace("-----------", "")\
-                                   .replace("ProcessName", "")\
-                                   .replace("'", "").split()
+        text = str(p.stdout.read()).replace('b', '') \
+            .replace("\\r", " ") \
+            .replace("\\n", " ") \
+            .replace("-----------", "") \
+            .replace("ProcessName", "") \
+            .replace("'", "").split()
         for task in text:
             if task not in ignored_pr:
                 self.random_phrase()
