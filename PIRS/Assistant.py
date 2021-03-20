@@ -23,7 +23,7 @@ SHORT_NORMALIZE = 1.0 / 32768.0
 Energy_speech = 10
 key_word = 'пирс'
 
-# Phrases and ignored programs
+# Phrases
 phrases_for_executing = ["Doing.mp3", "Will_be_done.mp3", "How_say_sir.mp3"]
 phrases_for_web_search = ["Finding_information 1.mp3", "Finding_information 2.mp3", "Request_accepted.mp3"]
 
@@ -48,6 +48,21 @@ class Assistant(QtCore.QObject):
             frames_per_buffer=FPB
         )
         self.stream.start_stream()
+        # default commands of PIRS
+        self.tasks = {
+            # internet and social networks
+            ("открой ютуб", "запусти ютуб"): self.youtube,
+            ("открой вк", "запусти вк"): self.vk,
+            # system commands and windows apps
+            ("открой диспетчер задач", "запусти диспетчер задач"): self.taskmgr,
+            ("открой панель управления", "запусти панель управления"): self.control,
+            ("открой проводник", "запусти проводник", "открой мой компьютер", "запусти мой компьютер"): self.explorer,
+            ("открой параметры", "запусти параметры"): self.params,
+            ("выключи компьютер", "выключи пк"): self.turn_off,
+            ("перезагрузи компьютер", "перезагрузи пк"): self.refresh,
+            ("открой калькулятор", "запусти калькулятор"): self.calc,
+            ("пока", "заверши работу"): self.bye
+        }
 
     # rms(rated maximum sinusoidal) noise calculation
     @staticmethod
@@ -106,29 +121,14 @@ class Assistant(QtCore.QObject):
 
     # commands execution
     def cmd(self, task):
-        tasks = {
-            # internet and social networks
-            ("открой ютуб", "запусти ютуб"): self.youtube,
-            ("открой вк", "запусти вк"): self.vk,
-            # system commands and windows apps
-            ("открой диспетчер задач", "запусти диспетчер задач"): self.taskmgr,
-            ("открой панель управления", "запусти панель управления"): self.control,
-            ("открой проводник", "запусти проводник", "открой мой компьютер", "запусти мой компьютер"): self.explorer,
-            ("открой параметры", "запусти параметры"): self.params,
-            ("выключи компьютер", "выключи пк"): self.turn_off,
-            ("перезагрузи компьютер", "перезагрузи пк"): self.refresh,
-            ("открой калькулятор", "запусти калькулятор"): self.calc,
-            ("закрой все", "закрой все приложения"): self.close_all,
-            ("пока", "заверши работу"): self.bye
-        }
+        self.feedDict(self.tasks)
 
-        self.downloadCommand()
         max_similar = 0  # the coefficient of similarity
         cmd = ''  # command
         search_tags = ("как", "кто такой", "кто такая", "что такое", "найди", "ищи", "найти")
 
         # inaccurate search
-        for ls in tasks:
+        for ls in self.tasks:
             for i in ls:
                 rate_similar = fuzz.ratio(task, i)
                 if rate_similar > 75 and rate_similar > max_similar:
@@ -136,9 +136,9 @@ class Assistant(QtCore.QObject):
                     cmd = ls
         try:
             try:
-                self.open_site(tasks[cmd])
+                self.open_site(self.tasks[cmd])
             except:
-                tasks[cmd]()
+                self.tasks[cmd]()
         except KeyError:
             for tag in search_tags:
                 if tag in task:
@@ -151,7 +151,8 @@ class Assistant(QtCore.QObject):
     # Choosing random phrase for executing command
     @staticmethod
     def random_phrase(pr_phrase=None):
-        phrase = choice([choice(phrases_for_executing), pr_phrase])
+        phrase_exe = choice(phrases_for_executing)
+        phrase = choice([phrase_exe, pr_phrase])
         audio_file = f"audio/{phrase}"
         playsound(audio_file, block=False)
 
@@ -160,6 +161,10 @@ class Assistant(QtCore.QObject):
         phrase = choice(phrases_for_web_search)
         audio_file = f"audio/{phrase}"
         playsound(audio_file, block=False)
+
+    def open_site(self, url):
+        self.random_phrase("Opening.mp3")
+        return wb.open(url)
 
     # getting commands from file "command.txt"
     def downloadCommand(self):
@@ -171,11 +176,18 @@ class Assistant(QtCore.QObject):
                 command = uc[1]
                 self.tasks[tuple([command])] = url
 
-    def open_site(self, url):
-        wb.open(url)
-        self.random_phrase("Opening.mp3")
+    @staticmethod
+    def countFunc():
+        with open("commands.txt") as file:
+            n = sum(1 for line in file)
+        return n
 
-    # Functions
+    def feedDict(self, dict):
+        count = 10 + self.countFunc()
+        if count != len(dict):
+            self.downloadCommand()
+
+    # Functions for user
     def youtube(self):
         self.random_phrase("Youtube.mp3")
         return wb.open("https://www.youtube.com/")
