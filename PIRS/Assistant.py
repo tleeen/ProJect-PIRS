@@ -1,9 +1,4 @@
-from vosk import Model, KaldiRecognizer
 import pyaudio
-import json
-import struct
-from math import sqrt
-import time
 from datetime import datetime
 import webbrowser as wb
 from fuzzywuzzy import fuzz
@@ -11,6 +6,7 @@ from os import system
 from random import choice
 from playsound import playsound
 from PyQt5 import QtCore
+from recognizer import Recognizer
 
 # Settings
 FORMAT = pyaudio.paInt16
@@ -34,20 +30,7 @@ class Assistant(QtCore.QObject):
 
     def __init__(self):
         super().__init__()
-        self.Threshold = 20
-        # vosk
-        self.model = Model("speech_model")
-        self.rec = KaldiRecognizer(self.model, RATE)
-        # pyaudio
-        self.audio = pyaudio.PyAudio()
-        self.stream = self.audio.open(
-            format=FORMAT,
-            channels=CHANNELS,
-            rate=RATE,
-            input=True,
-            frames_per_buffer=FPB
-        )
-        self.stream.start_stream()
+        self.rc = Recognizer()
         # default commands of PIRS
         self.tasks = {
             # internet and social networks
@@ -64,60 +47,10 @@ class Assistant(QtCore.QObject):
             ("пока", "заверши работу"): self.bye
         }
 
-    # rms(rated maximum sinusoidal) noise calculation
-    @staticmethod
-    def rms(frame):
-        count = len(frame) / SAMPLE_WIDTH
-        form = "%dh" % count
-        shorts = struct.unpack(form, frame)
-        sum_squares = 0.0
-        for sample in shorts:
-            n = sample * SHORT_NORMALIZE
-            sum_squares += n * n
-        rms = sqrt(sum_squares / count)
-        return rms * 1000
-
-    # Automatically adjusts microphone level to the environment
-    def adjustment_to_noise(self, duration=1):
-        seconds_per_buffer = FPB / RATE
-        end_time = 0
-        while True:
-            end_time += seconds_per_buffer
-            if end_time > duration:
-                break
-            data = self.stream.read(FPB)
-            rms = self.rms(data)
-
-            damping = 0.15 ** seconds_per_buffer
-            target_rms = rms * 1.5
-            self.Threshold = Energy_speech * damping * target_rms * (1 - damping)
-
-    def speech_to_text(self):
-        self.adjustment_to_noise()
-        task = ''
-        now = time.time()
-        end = time.time() + TIMEOUT_LENGTH
-        while now <= end:
-            data = self.stream.read(FPB)
-            # checking the ambient volume
-            if self.rms(data) >= self.Threshold:
-                end = time.time() + TIMEOUT_LENGTH / 1.2
-            now = time.time()
-            # vosk
-            if self.rec.AcceptWaveform(data):
-                text = json.loads(self.rec.Result())
-                task = text['text']
-        return task
-
     def voice_activation(self):
         while True:
-            data = self.stream.read(FPB)
-            if self.rec.AcceptWaveform(data):
-                text = json.loads(self.rec.Result())
-                task = text['text']
-                if key_word in task:
-                    playsound("audio/Listen_to_you.mp3")
-                    self.cmd(self.speech_to_text())
+            if self.rc.start():
+                self.cmd(self.rc.speech_to_text())
 
     # commands execution
     def cmd(self, task):
@@ -144,7 +77,7 @@ class Assistant(QtCore.QObject):
                 if tag in task:
                     return self.web_search(task.replace(tag, ""))
             playsound("audio/Repeat_please.mp3")
-            new_task = self.speech_to_text()
+            new_task = self.rc.speech_to_text()
             if new_task != "":
                 self.cmd(new_task)
 
@@ -163,8 +96,8 @@ class Assistant(QtCore.QObject):
         playsound(audio_file, block=False)
 
     def open_site(self, url):
+        wb.open(url)
         self.random_phrase("Opening.mp3")
-        return wb.open(url)
 
     # getting commands from file "command.txt"
     def downloadCommand(self):
