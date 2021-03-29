@@ -55,18 +55,10 @@ class Assistant(QtCore.QObject):
     # commands execution
     def cmd(self, task):
         self.feedDict(self.tasks)
-
-        max_similar = 0  # the coefficient of similarity
-        cmd = ''  # command
         search_tags = ("как", "кто такой", "кто такая", "что такое", "найди", "ищи", "найти")
 
         # inaccurate search
-        for ls in self.tasks:
-            for i in ls:
-                rate_similar = fuzz.ratio(task, i)
-                if rate_similar > 75 and rate_similar > max_similar:
-                    max_similar = rate_similar
-                    cmd = ls
+        cmd = self.inaccurateSearch(task)
         try:
             try:
                 self.open_site(self.tasks[cmd])
@@ -82,14 +74,12 @@ class Assistant(QtCore.QObject):
                 self.cmd(new_task)
 
     # Choosing random phrase for executing command
-    @staticmethod
     def random_phrase(pr_phrase=None):
         phrase_exe = choice(phrases_for_executing)
         phrase = choice([phrase_exe, pr_phrase])
         audio_file = f"audio/{phrase}"
         playsound(audio_file, block=False)
 
-    @staticmethod
     def random_phrase_web():
         phrase = choice(phrases_for_web_search)
         audio_file = f"audio/{phrase}"
@@ -109,7 +99,6 @@ class Assistant(QtCore.QObject):
                 command = uc[1]
                 self.tasks[tuple([command])] = url
 
-    @staticmethod
     def countFunc():
         with open("commands.txt") as file:
             n = sum(1 for line in file)
@@ -119,6 +108,17 @@ class Assistant(QtCore.QObject):
         count = 10 + self.countFunc()
         if count != len(dict):
             self.downloadCommand()
+    
+    def inaccurateSearch(self, task):
+        max_similar = 0 # the coefficient of similarity
+        for tpl in self.tasks:
+            for tsk in tpl:
+                rate_similar = fuzz.ratio(task, tsk)
+                if rate_similar>75 and rate_similar>max_similar:
+                    max_similar = rate_similar
+                    cmd = tsk
+        return cmd
+        
 
     # Functions for user
     def youtube(self):

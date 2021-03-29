@@ -2,4 +2,5 @@
 __pycache__/
 speech_model/
 main.py
-venv/
+.venv/
+.vscode/
