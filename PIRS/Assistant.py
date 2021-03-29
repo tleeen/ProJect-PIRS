@@ -74,12 +74,17 @@ class Assistant(QtCore.QObject):
                 self.cmd(new_task)
 
     # Choosing random phrase for executing command
+    @staticmethod
     def random_phrase(pr_phrase=None):
         phrase_exe = choice(phrases_for_executing)
-        phrase = choice([phrase_exe, pr_phrase])
-        audio_file = f"audio/{phrase}"
+        if pr_phrase != None:
+            phrase = choice([phrase_exe, pr_phrase])
+            audio_file = f"audio/{phrase}"
+        else:
+            audio_file = f"audio/{phrase_exe}"
         playsound(audio_file, block=False)
 
+    @staticmethod
     def random_phrase_web():
         phrase = choice(phrases_for_web_search)
         audio_file = f"audio/{phrase}"
@@ -99,6 +104,7 @@ class Assistant(QtCore.QObject):
                 command = uc[1]
                 self.tasks[tuple([command])] = url
 
+    @staticmethod
     def countFunc():
         with open("commands.txt") as file:
             n = sum(1 for line in file)
@@ -116,7 +122,7 @@ class Assistant(QtCore.QObject):
                 rate_similar = fuzz.ratio(task, tsk)
                 if rate_similar>75 and rate_similar>max_similar:
                     max_similar = rate_similar
-                    cmd = tsk
+                    cmd = tpl
         return cmd
         
 
