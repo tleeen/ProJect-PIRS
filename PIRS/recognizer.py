@@ -23,7 +23,7 @@ class Recognizer(QtCore.QObject):
 
     def __init__(self):
         super().__init__()
-        self.Threshold = 20
+        self.Threshold = 0
         # vosk
         self.model = Model("speech_model")
         self.rec = KaldiRecognizer(self.model, RATE)
@@ -61,7 +61,6 @@ class Recognizer(QtCore.QObject):
                 break
             data = self.stream.read(FPB)
             rms = self.rms(data)
-
             damping = 0.15 ** seconds_per_buffer
             target_rms = rms * 1.5
             self.Threshold = Energy_speech * damping * target_rms * (1 - damping)

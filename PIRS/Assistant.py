@@ -16,7 +16,6 @@ FPB = 8000
 TIMEOUT_LENGTH = 3
 SAMPLE_WIDTH = 2
 SHORT_NORMALIZE = 1.0 / 32768.0
-Energy_speech = 10
 key_word = 'пирс'
 
 # Phrases
