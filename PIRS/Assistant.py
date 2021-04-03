@@ -34,17 +34,17 @@ class Assistant(QtCore.QObject):
         # default commands of PIRS
         self.tasks = {
             # internet and social networks
-            ("открой ютуб", "запусти ютуб"): self.youtube,
-            ("открой вк", "запусти вк"): self.vk,
+            ("открой ютуб", "включи ютуб"): self.youtube,
+            ("открой вконтакте", "включи вконтакте"): self.vk,
             # system commands and windows apps
             ("открой диспетчер задач", "запусти диспетчер задач"): self.taskmgr,
             ("открой панель управления", "запусти панель управления"): self.control,
-            ("открой проводник", "запусти проводник", "открой мой компьютер", "запусти мой компьютер"): self.explorer,
+            ("открой проводник", "запусти проводник"): self.explorer,
             ("открой параметры", "запусти параметры"): self.params,
             ("выключи компьютер", "выключи пк"): self.turn_off,
             ("перезагрузи компьютер", "перезагрузи пк"): self.refresh,
             ("открой калькулятор", "запусти калькулятор"): self.calc,
-            ("пока", "заверши работу"): self.bye
+            ("заверши работу",): self.bye
         }
 
     def voice_activation(self):
@@ -101,8 +101,8 @@ class Assistant(QtCore.QObject):
                 uc = line.replace("\n", "")
                 uc = uc.split(";")
                 url = uc[0]
-                command = uc[1]
-                self.tasks[tuple([command])] = url
+                command = (uc[1],)
+                self.tasks[command] = url
 
     @staticmethod
     def countFunc():
@@ -182,13 +182,13 @@ class Assistant(QtCore.QObject):
     def greeting():
         current_time = datetime.now()
         if (current_time.hour >= 6) and (current_time.hour < 12):
-            playsound(r"audio\Good_morning.mp3")
+            playsound(r"audio/Good_morning.mp3")
         elif (current_time.hour >= 12) and (current_time.hour < 18):
-            playsound(r"audio\Good_evening.mp3")
+            playsound(r"audio/Good_evening.mp3")
         elif (current_time.hour >= 18) and (current_time.hour < 23):
-            playsound(r"audio\Good_afternoon.mp3")
+            playsound(r"audio/Good_afternoon.mp3")
         else:
-            playsound(r"audio\Greetings_at_night.mp3")
+            playsound(r"audio/Greetings_at_night.mp3")
 
     @staticmethod
     def bye():
