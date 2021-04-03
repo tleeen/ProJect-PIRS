@@ -21,6 +21,7 @@ key_word = 'пирс'
 # Phrases
 phrases_for_executing = ["Doing.mp3", "Will_be_done.mp3", "How_say_sir.mp3"]
 phrases_for_web_search = ["Finding_information 1.mp3", "Finding_information 2.mp3", "Request_accepted.mp3"]
+search_tags = ("как", "кто такой", "кто такая", "что такое", "найди", "ищи", "найти")
 
 """ ---> Voice Assistant <--- """
 
@@ -53,20 +54,20 @@ class Assistant(QtCore.QObject):
 
     # commands execution
     def cmd(self, task):
+        # download commands from txt file
         self.feedDict(self.tasks)
-        search_tags = ("как", "кто такой", "кто такая", "что такое", "найди", "ищи", "найти")
-
         # inaccurate search
         cmd = self.inaccurateSearch(task)
-        try:
+        if cmd != '':
             try:
-                self.open_site(self.tasks[cmd])
-            except:
-                self.tasks[cmd]()
-        except KeyError:
-            for tag in search_tags:
-                if tag in task:
-                    return self.web_search(task.replace(tag, ""))
+                try:
+                    return self.tasks[cmd]()
+                except:
+                    return self.open_site(self.tasks[cmd])                    
+            except KeyError:
+                for tag in search_tags:
+                    if tag in task:
+                        return self.web_search(task.replace(tag, ""))
             playsound("audio/Repeat_please.mp3")
             new_task = self.rc.speech_to_text()
             if new_task != "":
@@ -115,6 +116,7 @@ class Assistant(QtCore.QObject):
             self.downloadCommand()
     
     def inaccurateSearch(self, task):
+        cmd = task # command
         max_similar = 0 # the coefficient of similarity
         for tpl in self.tasks:
             for tsk in tpl:
@@ -122,6 +124,8 @@ class Assistant(QtCore.QObject):
                 if rate_similar>75 and rate_similar>max_similar:
                     max_similar = rate_similar
                     cmd = tpl
+            if max_similar == 100:
+                return cmd
         return cmd
         
 
