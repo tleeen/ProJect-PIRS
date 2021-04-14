@@ -141,5 +141,5 @@ class App(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = App()
-    Assistant.greeting()
+    #Assistant.greeting()
     app.exec()

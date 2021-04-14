@@ -47,7 +47,7 @@ class Assistant(QtCore.QObject):
             ("заверши работу",): self.bye
         }
         # dictionary for count of often functions
-        self.countFunc = {
+        self.count = {
             ("открой ютуб", "включи ютуб"): 0,
             ("открой вконтакте", "включи вконтакте"): 0,
             ("открой диспетчер задач", "запусти диспетчер задач"): 0,
@@ -130,8 +130,8 @@ class Assistant(QtCore.QObject):
     
     def getOftenTask(self):
         max = 0
-        cashe = ("открой ютуб", "включи ютуб")
-        for key, value in self.countFunc.items:
+        cashe = ("открой проводник", "запусти проводник")
+        for key, value in self.count.items():
             if value > max:
                 max = value
                 cashe = key
@@ -139,9 +139,11 @@ class Assistant(QtCore.QObject):
         
     def inaccurateSearch(self, task):
         cashe = self.getOftenTask()
+        print(task)
         for tsk in cashe:
-            if fuzz.ratio(task, tsk) == 100:
-                cmd = tsk
+            if fuzz.ratio(task, tsk) > 90:
+                cmd = cashe
+                self.count[cashe] += 1
                 return cmd
         cmd = task # command
         max_similar = 0 # the coefficient of similarity
@@ -221,7 +223,3 @@ class Assistant(QtCore.QObject):
     def bye():
         playsound("audio/Goodbye.mp3")
         exit(0)
-
-if __name__=="__main__":
-    PIRS = Assistant
-    PIRS.getOftenTask()
