@@ -46,6 +46,19 @@ class Assistant(QtCore.QObject):
             ("открой калькулятор", "запусти калькулятор"): self.calc,
             ("заверши работу",): self.bye
         }
+        # dictionary for count of often functions
+        self.countFunc = {
+            ("открой ютуб", "включи ютуб"): 0,
+            ("открой вконтакте", "включи вконтакте"): 0,
+            ("открой диспетчер задач", "запусти диспетчер задач"): 0,
+            ("открой панель управления", "запусти панель управления"): 0,
+            ("открой проводник", "запусти проводник"): 0,
+            ("открой параметры", "запусти параметры"): 0,
+            ("выключи компьютер", "выключи пк"): 0,
+            ("перезагрузи компьютер", "перезагрузи пк"): 0,
+            ("открой калькулятор", "запусти калькулятор"): 0,
+            ("заверши работу",): 0
+        }
 
     def voice_activation(self):
         while True:
@@ -115,7 +128,21 @@ class Assistant(QtCore.QObject):
         if count != len(dict):
             self.downloadCommand()
     
+    def getOftenTask():
+        max = 0
+        cashe = self.tasks[("открой ютуб", "включи ютуб")]
+        for key, value in self.countFunc.items:
+            if value > max:
+                max = value
+                cashe = key
+        return cashe`
+        
     def inaccurateSearch(self, task):
+        cashe = self.getOftenTask()
+        for tsk in cashe:
+            if fuzz.ratio(task, tsk) == 100:
+                cmd = tsk
+                return cmd
         cmd = task # command
         max_similar = 0 # the coefficient of similarity
         for tpl in self.tasks:
