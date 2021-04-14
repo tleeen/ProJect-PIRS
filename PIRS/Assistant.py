@@ -128,14 +128,14 @@ class Assistant(QtCore.QObject):
         if count != len(dict):
             self.downloadCommand()
     
-    def getOftenTask():
+    def getOftenTask(self):
         max = 0
-        cashe = self.tasks[("открой ютуб", "включи ютуб")]
+        cashe = ("открой ютуб", "включи ютуб")
         for key, value in self.countFunc.items:
             if value > max:
                 max = value
                 cashe = key
-        return cashe`
+        return cashe
         
     def inaccurateSearch(self, task):
         cashe = self.getOftenTask()
@@ -221,3 +221,7 @@ class Assistant(QtCore.QObject):
     def bye():
         playsound("audio/Goodbye.mp3")
         exit(0)
+
+if __name__=="__main__":
+    PIRS = Assistant
+    PIRS.getOftenTask()
