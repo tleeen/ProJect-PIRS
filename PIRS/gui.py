@@ -5,7 +5,6 @@ from PyQt5.QtCore import Qt
 from pycaw.pycaw import AudioUtilities
 from Assistant import *
 
-
 class App(QWidget):
 
     def __init__(self):
