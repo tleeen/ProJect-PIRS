@@ -139,7 +139,6 @@ class Assistant(QtCore.QObject):
         
     def inaccurateSearch(self, task):
         cashe = self.getOftenTask()
-        print(task)
         for tsk in cashe:
             if fuzz.ratio(task, tsk) > 90:
                 cmd = cashe
@@ -153,6 +152,7 @@ class Assistant(QtCore.QObject):
                 if rate_similar>75 and rate_similar>max_similar:
                     max_similar = rate_similar
                     cmd = tpl
+        self.count[cmd] += 1
             if max_similar == 100:
                 return cmd
         return cmd
