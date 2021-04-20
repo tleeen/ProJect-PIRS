@@ -8,16 +8,6 @@ from playsound import playsound
 from PyQt5 import QtCore
 from recognizer import Recognizer
 
-# Settings
-FORMAT = pyaudio.paInt16
-CHANNELS = 1
-RATE = 16000
-FPB = 8000
-TIMEOUT_LENGTH = 3
-SAMPLE_WIDTH = 2
-SHORT_NORMALIZE = 1.0 / 32768.0
-key_word = 'пирс'
-
 # Phrases
 phrases_for_executing = ["Doing.mp3", "Will_be_done.mp3", "How_say_sir.mp3"]
 phrases_for_web_search = ["Finding_information 1.mp3", "Finding_information 2.mp3", "Request_accepted.mp3"]
