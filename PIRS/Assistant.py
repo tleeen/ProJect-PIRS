@@ -67,10 +67,8 @@ class Assistant(QtCore.QObject):
 
     # commands execution
     def cmd(self, task):
-        # download commands from txt file
-        self.feedDict(self.tasks)
-        # inaccurate search
-        cmd = self.inaccurateSearch(task)
+        self.feedDict(self.tasks)         # download commands from txt file
+        cmd = self.inaccurateSearch(task) # inaccurate search
         if cmd != '':
             try:
                 try:
@@ -85,6 +83,58 @@ class Assistant(QtCore.QObject):
             new_task = self.rc.speech_to_text()
             if new_task != "":
                 self.cmd(new_task)
+
+    # cashing technology
+    def getOftenTask(self):
+        max = 0
+        cashe = ("открой проводник", "запусти проводник")
+        for key, value in self.count.items():
+            if value > max:
+                max = value
+                cashe = key
+        return cashe
+        
+    def inaccurateSearch(self, task):
+        cashe = self.getOftenTask()
+        for tsk in cashe:
+            if fuzz.ratio(task, tsk) > 90:
+                self.count[cashe]+=1
+                return cashe                
+        cmd = task # command
+        max_similar = 0 # the coefficient of similarity
+        for tpl in self.tasks:
+            for tsk in tpl:
+                rate_similar = fuzz.ratio(task, tsk)
+                if rate_similar>75 and rate_similar>max_similar:
+                    max_similar = rate_similar
+                    cmd = tpl
+            if max_similar == 100:
+                self.count[cmd] += 1
+                return cmd
+        self.count[cmd] += 1
+        return cmd
+
+    # getting commands from file "command.txt"
+    def downloadCommand(self):
+        with open("commands.txt") as file:
+            for line in file:
+                uc = line.replace("\n", "")
+                uc = uc.split(";")
+                url = uc[0]
+                command = (uc[1],)
+                self.tasks[command] = url
+                self.count[command] = 0
+
+    @staticmethod
+    def countFunc():
+        with open("commands.txt") as file:
+            n = sum(1 for line in file)
+        return n
+
+    def feedDict(self, dict):
+        count = 10 + self.countFunc()
+        if count != len(dict):
+            self.downloadCommand()        
 
     # Choosing random phrase for executing command
     @staticmethod
@@ -103,62 +153,6 @@ class Assistant(QtCore.QObject):
         audio_file = f"audio/{phrase}"
         playsound(audio_file, block=False)
 
-    def open_site(self, url):
-        wb.open(url)
-        self.random_phrase("Opening.mp3")
-
-    # getting commands from file "command.txt"
-    def downloadCommand(self):
-        with open("commands.txt") as file:
-            for line in file:
-                uc = line.replace("\n", "")
-                uc = uc.split(";")
-                url = uc[0]
-                command = (uc[1],)
-                self.tasks[command] = url
-
-    @staticmethod
-    def countFunc():
-        with open("commands.txt") as file:
-            n = sum(1 for line in file)
-        return n
-
-    def feedDict(self, dict):
-        count = 10 + self.countFunc()
-        if count != len(dict):
-            self.downloadCommand()
-    
-    def getOftenTask(self):
-        max = 0
-        cashe = ("открой проводник", "запусти проводник")
-        for key, value in self.count.items():
-            if value > max:
-                max = value
-                cashe = key
-        return cashe
-        
-    def inaccurateSearch(self, task):
-        cashe = self.getOftenTask()
-        for tsk in cashe:
-            if fuzz.ratio(task, tsk) > 90:
-                cmd = cashe
-                self.count[cashe] += 1
-                return cmd
-        cmd = task # command
-        max_similar = 0 # the coefficient of similarity
-        for tpl in self.tasks:
-            for tsk in tpl:
-                rate_similar = fuzz.ratio(task, tsk)
-                if rate_similar>75 and rate_similar>max_similar:
-                    max_similar = rate_similar
-                    cmd = tpl
-            if max_similar == 100:
-                self.count[cmd] += 1
-                return cmd
-        self.count[cmd] += 1
-        return cmd
-        
-
     # Functions for user
     def youtube(self):
         self.random_phrase("Youtube.mp3")
@@ -171,6 +165,10 @@ class Assistant(QtCore.QObject):
     def web_search(self, task):
         self.random_phrase_web()
         return wb.open(f"https://www.google.com/search?q={task}&sourceid=chrome&ie=UTF-8".replace(" ", "+"))
+    
+    def open_site(self, url):
+        wb.open(url)
+        self.random_phrase("Opening.mp3")
 
     def taskmgr(self):
         self.random_phrase("Opening.mp3")
