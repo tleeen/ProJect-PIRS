@@ -19,10 +19,9 @@ Energy_speech = 100
 hot_word = 'пирс'
 
 
-class Recognizer(QtCore.QObject):
+class Recognizer():
 
     def __init__(self):
-        super().__init__()
         self.Threshold = 0
         # vosk
         self.model = Model("speech_model")

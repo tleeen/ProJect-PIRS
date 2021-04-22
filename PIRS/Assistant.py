@@ -59,16 +59,14 @@ class Assistant(QtCore.QObject):
     def cmd(self, task):
         self.feedDict(self.tasks)         # download commands from txt file
         cmd = self.inaccurateSearch(task) # inaccurate search
-        if cmd != '':
-            try:
-                try:
-                    return self.tasks[cmd]()
-                except:
-                    return self.open_site(self.tasks[cmd])                    
-            except KeyError:
-                for tag in search_tags:
-                    if tag in task:
-                        return self.web_search(task.replace(tag, ""))
+        if cmd in self.tasks:
+            if isinstance(self.tasks[cmd], str): return self.open_site(self.tasks[cmd])
+            else:                                return self.tasks[cmd]()
+        elif cmd not in self.tasks:
+            for tag in search_tags:
+                if tag in task:
+                    return self.web_search(task)
+        else:
             playsound("audio/Repeat_please.mp3")
             new_task = self.rc.speech_to_text()
             if new_task != "":
@@ -77,7 +75,7 @@ class Assistant(QtCore.QObject):
     # cashing technology
     def getOftenTask(self):
         max = 0
-        cashe = ("открой проводник", "запусти проводник")
+        cashe = ''
         for key, value in self.count.items():
             if value > max:
                 max = value
@@ -88,7 +86,7 @@ class Assistant(QtCore.QObject):
         cashe = self.getOftenTask()
         for tsk in cashe:
             if fuzz.ratio(task, tsk) > 90:
-                self.count[cashe]+=1
+                self.count[cashe] += 1
                 return cashe                
         cmd = task # command
         max_similar = 0 # the coefficient of similarity
@@ -98,10 +96,8 @@ class Assistant(QtCore.QObject):
                 if rate_similar>75 and rate_similar>max_similar:
                     max_similar = rate_similar
                     cmd = tpl
-            if max_similar == 100:
-                self.count[cmd] += 1
-                return cmd
-        self.count[cmd] += 1
+        if cmd!=task:
+            self.count[cmd] += 1
         return cmd
 
     # getting commands from file "command.txt"
@@ -211,4 +207,4 @@ class Assistant(QtCore.QObject):
     @staticmethod
     def bye():
         playsound("audio/Goodbye.mp3")
-        exit(0)
+        exit()
