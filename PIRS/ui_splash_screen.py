@@ -1,13 +1,4 @@
-# -*- coding: utf-8 -*-
-
 from PyQt5.QtCore import Qt, QRect, QMetaObject, QCoreApplication
-################################################################################
-## Form generated from reading UI file 'splash_screenXBSmkq.ui'
-##
-## Created by: Qt User Interface Compiler version 5.14.1
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QFrame, QLabel, QProgressBar
 
