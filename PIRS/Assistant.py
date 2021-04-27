@@ -60,13 +60,14 @@ class Assistant(QtCore.QObject):
         self.feedDict(self.tasks)         # download commands from txt file
         cmd = self.inaccurateSearch(task) # inaccurate search
         if cmd in self.tasks:
-            if isinstance(self.tasks[cmd], str): return self.open_site(self.tasks[cmd])
+            if isinstance(self.tasks[cmd], str): 
+                try: return self.open_site(self.tasks[cmd])
+                except: return self.open_folder(self.tasks[cmd])
             else:                                return self.tasks[cmd]()
-        elif cmd not in self.tasks:
+        else:
             for tag in search_tags:
                 if tag in task:
                     return self.web_search(task)
-        else:
             playsound("audio/Repeat_please.mp3")
             new_task = self.rc.speech_to_text()
             if new_task != "":
@@ -154,6 +155,10 @@ class Assistant(QtCore.QObject):
     
     def open_site(self, url):
         wb.open(url)
+        self.random_phrase("Opening.mp3")
+
+    def open_folder(self, path):
+        system("start {path}")
         self.random_phrase("Opening.mp3")
 
     def taskmgr(self):
