@@ -1,6 +1,9 @@
-from PyQt5.QtCore import Qt, QRect, QMetaObject, QCoreApplication
-from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QFrame, QLabel, QProgressBar
+from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
+    QRect, QSize, QUrl, Qt)
+from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
+    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
+    QRadialGradient)
+from PySide2.QtWidgets import *
 
 
 class Ui_SplashScreen(object):
@@ -17,10 +20,10 @@ class Ui_SplashScreen(object):
         self.dropShadowFrame = QFrame(self.centralwidget)
         self.dropShadowFrame.setObjectName(u"dropShadowFrame")
         self.dropShadowFrame.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(56, 58, 89);	\n"
-"	color: rgb(220, 220, 220);\n"
-"	border-radius: 10px;\n"
-"}")
+                                           "	background-color: rgb(56, 58, 89);	\n"
+                                           "	color: rgb(220, 220, 220);\n"
+                                           "	border-radius: 10px;\n"
+                                           "}")
         self.dropShadowFrame.setFrameShape(QFrame.StyledPanel)
         self.dropShadowFrame.setFrameShadow(QFrame.Raised)
         self.label_title = QLabel(self.dropShadowFrame)
