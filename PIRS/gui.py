@@ -10,7 +10,7 @@ class App(QWidget):
     def __init__(self):
         super().__init__()
 
-        # download and show main window
+        # download an6d show main window
         self.ui = uic.loadUi(r"gui\gui_pirs.ui")
         self.ui.setWindowFlag(Qt.FramelessWindowHint)
         self.ui.show()

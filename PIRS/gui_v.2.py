@@ -1,19 +1,7 @@
-import sys
-import platform
-from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
-
-
-## ==> SPLASH SCREEN
+from ui_functions import *
 from ui_splash_screen import Ui_SplashScreen
 
 # GUI FILE
-from ui_main import Ui_MainWindow
-
-# IMPORT FUNCTIONS
-from ui_functions import *
 
 ## ==> GLOBALS
 counter = 0
@@ -104,8 +92,6 @@ class SplashScreen(QMainWindow):
 
         # INCREASE COUNTER
         counter += 1
-
-
 
 
 if __name__ == "__main__":
