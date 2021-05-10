@@ -5,9 +5,9 @@ from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTi
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
+from gui_new_concept import *
 from ui_functions import *
 from ui_splash_screen import Ui_SplashScreen
-from gui_new_concept import Ui_MainWindow
 
 # GUI FILE
 
@@ -20,21 +20,45 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        ## REMOVE ==> STANDARD TITLE BAR
+        UIFunctions.removeTitleBar(True)
+        ## ==> END ##
+
+        ## REMOVE ==> STANDARD TITLE BAR
+        startSize = QSize(1000, 720)
+        self.resize(startSize)
+        self.setMinimumSize(startSize)
+        # UIFunctions.enableMaximumSize(self, 500, 720)
+        ## ==> END ##
+
+        ## ==> CREATE MENUS
+        ########################################################################
+
         ## TOGGLE/BURGUER MENU
         ########################################################################
         self.ui.btn_toggle_menu.clicked.connect(lambda: UIFunctions.toggleMenu(self, 250, True))
 
-        ## PAGES
+        ## ==> MOVE WINDOW / MAXIMIZE / RESTORE
         ########################################################################
+        def moveWindow(event):
+            # IF MAXIMIZED CHANGE TO NORMAL
+            if UIFunctions.returStatus() == 1:
+                UIFunctions.maximize_restore(self)
 
-        # PAGE 1
-        self.ui.btn_.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_1))
+            # MOVE WINDOW
+            if event.buttons() == Qt.LeftButton:
+                self.move(self.pos() + event.globalPos() - self.dragPos)
+                self.dragPos = event.globalPos()
+                event.accept()
 
-        # PAGE 2
-        self.ui.btn_page_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_2))
+        # WIDGET TO MOVE
+        self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
+        ## ==> END ##
 
-        # PAGE 3
-        self.ui.btn_page_3.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_3))
+        ## ==> LOAD DEFINITIONS
+        ########################################################################
+        UIFunctions.uiDefinitions(self)
+        ## ==> END ##
 
 
         ## SHOW ==> MAIN WINDOW
