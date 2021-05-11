@@ -5,11 +5,9 @@ from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTi
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
-from gui_new_concept import *
+from gui_new_concept_2 import *
 from ui_functions import *
 from ui_splash_screen import Ui_SplashScreen
-
-# GUI FILE
 
 ## ==> GLOBALS
 counter = 0
@@ -38,8 +36,26 @@ class MainWindow(QMainWindow):
         ########################################################################
         self.ui.btn_toggle_menu.clicked.connect(lambda: UIFunctions.toggleMenu(self, 250, True))
 
+        ## ==> START PAGE
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+
+        ## ==> END ##
+
+        ## PAGES
+        ########################################################################
+
+        # PAGE 1
+        self.ui.btn_home.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_home))
+
+        # PAGE 2
+        self.ui.btn_user.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_user))
+
+        # PAGE 3
+        self.ui.btn_settings.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings))
+
         ## ==> MOVE WINDOW / MAXIMIZE / RESTORE
         ########################################################################
+
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
             if UIFunctions.returStatus() == 1:
@@ -59,7 +75,6 @@ class MainWindow(QMainWindow):
         ########################################################################
         UIFunctions.uiDefinitions(self)
         ## ==> END ##
-
 
         ## SHOW ==> MAIN WINDOW
         ########################################################################
@@ -128,5 +143,7 @@ class SplashScreen(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
+    QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
     window = SplashScreen()
     sys.exit(app.exec_())

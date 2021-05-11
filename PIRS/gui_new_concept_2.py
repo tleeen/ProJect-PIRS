@@ -357,17 +357,17 @@ class Ui_MainWindow(object):
         self.layout_menus.setSpacing(0)
         self.layout_menus.setObjectName(u"layout_menus")
         self.layout_menus.setContentsMargins(0, 0, 0, 0)
-        self.btn_save = QPushButton(self.frame_menus)
-        self.btn_save.setObjectName(u"btn_save")
+        self.btn_home = QPushButton(self.frame_menus)
+        self.btn_home.setObjectName(u"btn_home")
         sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
-        self.btn_save.setSizePolicy(sizePolicy3)
-        self.btn_save.setMinimumSize(QSize(0, 60))
-        self.btn_save.setFont(font2)
-        self.btn_save.setLayoutDirection(Qt.LeftToRight)
-        self.btn_save.setStyleSheet(u"QPushButton {	\n"
+        sizePolicy3.setHeightForWidth(self.btn_home.sizePolicy().hasHeightForWidth())
+        self.btn_home.setSizePolicy(sizePolicy3)
+        self.btn_home.setMinimumSize(QSize(0, 60))
+        self.btn_home.setFont(font2)
+        self.btn_home.setLayoutDirection(Qt.LeftToRight)
+        self.btn_home.setStyleSheet(u"QPushButton {	\n"
 "	background-image: url(:/16x16/icons/16x16/cil-home.png);\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
@@ -386,16 +386,16 @@ class Ui_MainWindow(object):
 "	border-left: 28px solid rgb(85, 170, 255);\n"
 "}")
 
-        self.layout_menus.addWidget(self.btn_save)
+        self.layout_menus.addWidget(self.btn_home)
 
-        self.btn_new_user = QPushButton(self.frame_menus)
-        self.btn_new_user.setObjectName(u"btn_new_user")
-        sizePolicy3.setHeightForWidth(self.btn_new_user.sizePolicy().hasHeightForWidth())
-        self.btn_new_user.setSizePolicy(sizePolicy3)
-        self.btn_new_user.setMinimumSize(QSize(0, 60))
-        self.btn_new_user.setFont(font2)
-        self.btn_new_user.setLayoutDirection(Qt.LeftToRight)
-        self.btn_new_user.setStyleSheet(u"QPushButton {	\n"
+        self.btn_user = QPushButton(self.frame_menus)
+        self.btn_user.setObjectName(u"btn_user")
+        sizePolicy3.setHeightForWidth(self.btn_user.sizePolicy().hasHeightForWidth())
+        self.btn_user.setSizePolicy(sizePolicy3)
+        self.btn_user.setMinimumSize(QSize(0, 60))
+        self.btn_user.setFont(font2)
+        self.btn_user.setLayoutDirection(Qt.LeftToRight)
+        self.btn_user.setStyleSheet(u"QPushButton {	\n"
 "	background-image: url(:/16x16/icons/16x16/cil-user-follow.png);\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
@@ -414,7 +414,7 @@ class Ui_MainWindow(object):
 "	border-left: 28px solid rgb(85, 170, 255);\n"
 "}")
 
-        self.layout_menus.addWidget(self.btn_new_user)
+        self.layout_menus.addWidget(self.btn_user)
 
 
         self.verticalLayout_5.addWidget(self.frame_menus, 0, Qt.AlignTop)
@@ -508,6 +508,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.addWidget(self.label_7)
 
         self.stackedWidget.addWidget(self.page_home)
+        self.page_user = QWidget()
+        self.page_user.setObjectName(u"page_user")
+        self.verticalLayoutWidget = QWidget(self.page_user)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(-1, -1, 901, 611))
+        self.verticalLayout_6 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.stackedWidget.addWidget(self.page_user)
         self.page_settings = QWidget()
         self.page_settings.setObjectName(u"page_settings")
         self.horizontalLayout_9 = QHBoxLayout(self.page_settings)
@@ -600,7 +609,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -624,8 +633,8 @@ class Ui_MainWindow(object):
         self.btn_close.setText("")
         self.label_top_info_1.setText("")
         self.label_top_info_2.setText("")
-        self.btn_save.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u043c\u0430\u0448\u043d\u044f\u044f \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", None))
-        self.btn_new_user.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b", None))
+        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u043c\u0430\u0448\u043d\u044f\u044f \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", None))
+        self.btn_user.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b", None))
         self.btn_settings.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Page Index 0", None))

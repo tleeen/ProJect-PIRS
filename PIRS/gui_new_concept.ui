@@ -1325,7 +1325,7 @@ QPushButton:pressed {
                    <string notr="true">background: transparent;</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>1</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1362,6 +1362,19 @@ QPushButton:pressed {
                      </widget>
                     </item>
                    </layout>
+                  </widget>
+                  <widget class="QWidget" name="page_user">
+                   <widget class="QWidget" name="verticalLayoutWidget">
+                    <property name="geometry">
+                     <rect>
+                      <x>-1</x>
+                      <y>-1</y>
+                      <width>901</width>
+                      <height>611</height>
+                     </rect>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_6"/>
+                   </widget>
                   </widget>
                   <widget class="QWidget" name="page_settings">
                    <layout class="QHBoxLayout" name="horizontalLayout_9">

@@ -1,6 +1,7 @@
 ## ==> GUI FILE
 from gui_v_2 import *
 
+
 ## ==> GLOBALS
 GLOBAL_STATE = 0
 GLOBAL_TITLE_BAR = True
@@ -42,8 +43,9 @@ class UIFunctions(MainWindow):
             self.ui.frame_size_grip.show()
 
     ## ==> RETURN STATUS
-    def returStatus(self):
+    def returStatus():
         return GLOBAL_STATE
+
 
     ## ==> SET STATUS
     def setStatus(status):
