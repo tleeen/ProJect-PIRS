@@ -1,13 +1,14 @@
 import sys
 import platform
+from PyQt5.QtWidgets import qApp
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
-from gui_new_concept_2 import *
+from gui_new_concept_3 import *
 from ui_functions import *
-from ui_splash_screen import Ui_SplashScreen
+from ui_splash_screen_2 import Ui_SplashScreen
 
 ## ==> GLOBALS
 counter = 0
@@ -29,8 +30,22 @@ class MainWindow(QMainWindow):
         # UIFunctions.enableMaximumSize(self, 500, 720)
         ## ==> END ##
 
-        ## ==> CREATE MENUS
-        ########################################################################
+        # TRAY MENU
+        self.tray_icon = QSystemTrayIcon(self)
+        self.tray_icon.setIcon(QtGui.QIcon(r"gui\icons\tray_logo.ico"))
+
+        show_action = QAction("Show", self)
+        quit_action = QAction("Exit", self)
+        hide_action = QAction("Hide", self)
+        show_action.triggered.connect(self.show)
+        hide_action.triggered.connect(self.hide)
+        quit_action.triggered.connect(qApp.quit)
+        tray_menu = QMenu()
+        tray_menu.addAction(show_action)
+        tray_menu.addAction(hide_action)
+        tray_menu.addAction(quit_action)
+        self.tray_icon.setContextMenu(tray_menu)
+        self.tray_icon.show()
 
         ## TOGGLE/BURGUER MENU
         ########################################################################

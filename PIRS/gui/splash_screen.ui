@@ -33,8 +33,8 @@
     <item>
      <widget class="QFrame" name="dropShadowFrame">
       <property name="styleSheet">
-       <string notr="true">QFrame {	
-	background-color: rgb(56, 58, 89);	
+       <string notr="true">QFrame {
+	background-color: rgb(44, 49, 60);
 	color: rgb(220, 220, 220);
 	border-radius: 10px;
 }</string>
@@ -61,7 +61,7 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(254, 121, 199);</string>
+        <string notr="true">color: rgb(85, 170, 255);</string>
        </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:600;&quot;&gt;PIRS&lt;/span&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt; Приветствует вас&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
