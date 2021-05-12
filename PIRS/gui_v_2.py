@@ -6,7 +6,7 @@ from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTi
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
-from gui_new_concept_4 import *
+from gui_new_concept_6 import *
 from ui_functions import *
 from ui_splash_screen_2 import Ui_SplashScreen
 
@@ -82,6 +82,8 @@ class MainWindow(QMainWindow):
         self.ui.frame_label_top_btns.mousePressEvent = mouseClick
         self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
 
+        self.ui.pushButton.clicked.connect(self.getCommand)
+
 
         ## ==> LOAD DEFINITIONS
         ########################################################################
@@ -92,6 +94,20 @@ class MainWindow(QMainWindow):
         ########################################################################
         self.show()
         ## ==> END ##
+        # USER COMANDS
+
+    # USER COMANDS
+    def getCommand(self):
+        url = self.ui.lineEdit.text()
+        command = self.ui.lineEdit_2.text()
+        if command != "" and url != "":
+            self.ui.label_4.setText("")
+            with open("commands.txt", "a") as file:
+                file.write(url + ";" + command + "\n")
+            self.ui.lineEdit.clear()
+            self.ui.lineEdit_2.clear()
+        else:
+            self.ui.label_4.setText("Не все поля были заполнены")
 
 
 # SPLASH SCREEN

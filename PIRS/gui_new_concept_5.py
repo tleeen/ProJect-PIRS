@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'gui_new_concept.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
@@ -510,12 +520,133 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_home)
         self.page_user = QWidget()
         self.page_user.setObjectName(u"page_user")
-        self.verticalLayoutWidget = QWidget(self.page_user)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(-1, -1, 901, 611))
-        self.verticalLayout_6 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_6 = QVBoxLayout(self.page_user)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_5)
+
+        self.label = QLabel(self.page_user)
+        self.label.setObjectName(u"label")
+        font6 = QFont()
+        font6.setFamily(u"Segoe UI")
+        font6.setPointSize(16)
+        self.label.setFont(font6)
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_6.addWidget(self.label)
+
+        self.verticalLayout_7 = QVBoxLayout()
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.verticalLayout_7.addItem(self.verticalSpacer_2)
+
+        self.label_3 = QLabel(self.page_user)
+        self.label_3.setObjectName(u"label_3")
+        font7 = QFont()
+        font7.setFamily(u"Segoe UI")
+        font7.setPointSize(12)
+        self.label_3.setFont(font7)
+        self.label_3.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_7.addWidget(self.label_3)
+
+        self.lineEdit = QLineEdit(self.page_user)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setStyleSheet(u"QLineEdit {\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(27, 29, 35);\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+
+        self.verticalLayout_7.addWidget(self.lineEdit)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_7.addItem(self.verticalSpacer_8)
+
+
+        self.verticalLayout_6.addLayout(self.verticalLayout_7)
+
+        self.verticalLayout_8 = QVBoxLayout()
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalSpacer = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer)
+
+        self.label_2 = QLabel(self.page_user)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setFont(font7)
+        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_8.addWidget(self.label_2)
+
+        self.lineEdit_2 = QLineEdit(self.page_user)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setStyleSheet(u"QLineEdit {\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(27, 29, 35);\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+
+        self.verticalLayout_8.addWidget(self.lineEdit_2)
+
+        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_7)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_4)
+
+
+        self.verticalLayout_6.addLayout(self.verticalLayout_8)
+
+        self.pushButton = QPushButton(self.page_user)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setMinimumSize(QSize(200, 60))
+        self.pushButton.setMaximumSize(QSize(200, 60))
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet(u"QPushButton {\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"	border-radius: 5px;	\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(57, 65, 80);\n"
+"	border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(85, 170, 255);\n"
+"}")
+
+        self.verticalLayout_6.addWidget(self.pushButton, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_6)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_3)
+
         self.stackedWidget.addWidget(self.page_user)
         self.page_settings = QWidget()
         self.page_settings.setObjectName(u"page_settings")
@@ -638,6 +769,10 @@ class Ui_MainWindow(object):
         self.btn_settings.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Page Index 0", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u0441\u043e\u0431\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0439 \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f :", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044b\u043b\u043a\u0443 \u043d\u0430 \u0441\u0430\u0439\u0442", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0433\u043e\u043b\u043e\u0441\u043e\u0432\u0443\u044e \u043a\u043e\u043c\u0430\u043d\u0434\u0443", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"OK", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Page Index 1", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"SETTINGS", None))
         self.label_credits.setText("")
