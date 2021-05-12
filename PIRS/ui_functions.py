@@ -7,7 +7,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFo
 from PySide2.QtWidgets import *
 
 ## ==> GUI FILE
-from gui_v_2 import *
+from gui_v_2 import MainWindow 
 
 
 ## ==> GLOBALS

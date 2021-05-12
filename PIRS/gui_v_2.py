@@ -68,23 +68,20 @@ class MainWindow(QMainWindow):
         # PAGE 3
         self.ui.btn_settings.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings))
 
-        ## ==> MOVE WINDOW / MAXIMIZE / RESTORE
-        ########################################################################
-
-        def moveWindow(event):
-            # IF MAXIMIZED CHANGE TO NORMAL
-            if UIFunctions.returStatus() == 1:
-                UIFunctions.maximize_restore(self)
-
-            # MOVE WINDOW
+        # MOUSE CLICK HANDING
+        def mouseClick(event):
             if event.buttons() == Qt.LeftButton:
-                self.move(self.pos() + event.globalPos() - self.dragPos)
-                self.dragPos = event.globalPos()
-                event.accept()
+                self.start = event.pos()
 
-        # WIDGET TO MOVE
+        # MOVE MAIN WINDOW
+        def moveWindow(event):
+            if event.buttons() == Qt.LeftButton:
+                self.delta = event.globalPos() - self.pos() - QtCore.QPoint(80, 10)
+                self.move(self.pos() + self.delta - self.start)
+
+        self.ui.frame_label_top_btns.mousePressEvent = mouseClick
         self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
-        ## ==> END ##
+
 
         ## ==> LOAD DEFINITIONS
         ########################################################################
