@@ -6,7 +6,7 @@ from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTi
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
-from gui_new_concept_3 import *
+from gui_new_concept_4 import *
 from ui_functions import *
 from ui_splash_screen_2 import Ui_SplashScreen
 
