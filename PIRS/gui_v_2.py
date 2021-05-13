@@ -5,8 +5,10 @@ from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
+from pycaw.pycaw import AudioUtilities
+from Assistant import *
 
-from gui_new_concept_6 import *
+from gui_new_concept_7 import *
 from ui_functions import *
 from ui_splash_screen_2 import Ui_SplashScreen
 
@@ -18,6 +20,13 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        # Pirs's functions
+        self.thread = QtCore.QThread()
+        self.Pirs = Assistant()
+        self.Pirs.moveToThread(self.thread)
+        self.ui.pushButton_2.clicked.connect(self.Pirs.voice_activation)
+        self.thread.start()
 
         ## REMOVE ==> STANDARD TITLE BAR
         UIFunctions.removeTitleBar(True)

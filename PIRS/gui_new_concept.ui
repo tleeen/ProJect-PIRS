@@ -1321,24 +1321,27 @@ QPushButton:pressed {
                 </property>
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
+                  <property name="font">
+                   <font>
+                    <family>Segoe UI</family>
+                    <pointsize>36</pointsize>
+                   </font>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background: transparent;</string>
                   </property>
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
                     <item>
-                     <widget class="QLabel" name="label_6">
-                      <property name="font">
-                       <font>
-                        <family>Segoe UI</family>
-                        <pointsize>40</pointsize>
-                       </font>
-                      </property>
+                     <widget class="QLabel" name="label_5">
                       <property name="text">
-                       <string>HOME</string>
+                       <string/>
+                      </property>
+                      <property name="pixmap">
+                       <pixmap>gui/icons/tray_logo.ico</pixmap>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
@@ -1346,20 +1349,69 @@ QPushButton:pressed {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="label_7">
+                     <spacer name="verticalSpacer_13">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                     <widget class="QPushButton" name="pushButton_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>500</width>
+                        <height>200</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>500</width>
+                        <height>200</height>
+                       </size>
+                      </property>
                       <property name="font">
                        <font>
                         <family>Segoe UI</family>
-                        <pointsize>15</pointsize>
+                        <pointsize>36</pointsize>
                        </font>
                       </property>
-                      <property name="text">
-                       <string>Page Index 0</string>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton {
+	border: 2px solid rgb(52, 59, 72);
+	border-radius: 5px;	
+	background-color: rgb(52, 59, 72);
+}
+QPushButton:hover {
+	background-color: rgb(57, 65, 80);
+	border: 2px solid rgb(61, 70, 86);
+}
+QPushButton:pressed {	
+	background-color: rgb(85, 170, 255);
+}</string>
                       </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                      <property name="text">
+                       <string>Активация</string>
                       </property>
                      </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_7">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
                     </item>
                    </layout>
                   </widget>
@@ -1672,40 +1724,7 @@ QPushButton:pressed {
                    </layout>
                   </widget>
                   <widget class="QWidget" name="page_settings">
-                   <layout class="QHBoxLayout" name="horizontalLayout_9">
-                    <item>
-                     <widget class="QLabel" name="label_9">
-                      <property name="font">
-                       <font>
-                        <family>Segoe UI</family>
-                        <pointsize>15</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Page Index 1</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_8">
-                      <property name="font">
-                       <font>
-                        <family>Segoe UI</family>
-                        <pointsize>40</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>SETTINGS</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                   <layout class="QHBoxLayout" name="horizontalLayout_9"/>
                   </widget>
                  </widget>
                 </item>
