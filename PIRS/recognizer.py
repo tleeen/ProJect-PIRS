@@ -4,7 +4,6 @@ import json
 import struct
 from math import sqrt
 import time
-from PyQt5 import QtCore
 from playsound import playsound
 
 # Settings

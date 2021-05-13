@@ -1,16 +1,8 @@
-import sys
-import platform
-from PyQt5.QtWidgets import qApp
-from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
-from pycaw.pycaw import AudioUtilities
 from Assistant import *
-
 from gui_new_concept_7 import *
 from ui_functions import *
 from ui_splash_screen_2 import Ui_SplashScreen
+import sys
 
 ## ==> GLOBALS
 counter = 0
@@ -48,7 +40,7 @@ class MainWindow(QMainWindow):
         hide_action = QAction("Hide", self)
         show_action.triggered.connect(self.show)
         hide_action.triggered.connect(self.hide)
-        quit_action.triggered.connect(qApp.quit)
+        quit_action.triggered.connect(self.close)
         tray_menu = QMenu()
         tray_menu.addAction(show_action)
         tray_menu.addAction(hide_action)

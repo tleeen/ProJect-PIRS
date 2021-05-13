@@ -5,7 +5,7 @@ from fuzzywuzzy import fuzz
 from os import system
 from random import choice
 from playsound import playsound
-from PyQt5 import QtCore
+from PySide2 import QtCore
 from recognizer import Recognizer
 
 # Phrases
@@ -212,4 +212,4 @@ class Assistant(QtCore.QObject):
     @staticmethod
     def bye():
         playsound("audio/Goodbye.mp3")
-        exit()
+        exit(0)

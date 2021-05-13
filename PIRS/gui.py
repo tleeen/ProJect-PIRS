@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QSystemTrayIcon, QAction, qApp, QMenu, QGraphicsDropShadowEffect
 from PyQt5 import QtGui, uic
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import *
 from pycaw.pycaw import AudioUtilities
 from Assistant import *
 
