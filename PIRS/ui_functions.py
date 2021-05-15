@@ -1,6 +1,6 @@
 from PySide2 import QtCore, QtGui
-from PySide2.QtCore import QPropertyAnimation, QSize, Qt
-from PySide2.QtGui import QColor, QFont
+from PySide2.QtCore import QPropertyAnimation, QSize
+from PySide2.QtGui import QColor
 from PySide2.QtWidgets import *
 
 ## ==> GUI FILE
@@ -33,7 +33,7 @@ class UIFunctions(MainWindow):
             self.showMaximized()
             GLOBAL_STATE = 1
             self.ui.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-            self.ui.btn_maximize_restore.setToolTip("Restore")
+            self.ui.btn_maximize_restore.setToolTip("Восстановить")
             self.ui.btn_maximize_restore.setIcon(QtGui.QIcon(u":/16x16/icons/16x16/cil-window-restore.png"))
             self.ui.frame_top_btns.setStyleSheet("background-color: rgb(27, 29, 35)")
             self.ui.frame_size_grip.hide()
@@ -104,30 +104,6 @@ class UIFunctions(MainWindow):
     def labelDescription(self, text):
         self.ui.label_top_info_1.setText(text)
 
-    ## ==> DYNAMIC MENUS
-    ########################################################################
-    def addNewMenu(self, name, objName, icon, isTopMenu):
-        font = QFont()
-        font.setFamily(u"Segoe UI")
-        button = QPushButton(str(count), self)
-        button.setObjectName(objName)
-        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(button.sizePolicy().hasHeightForWidth())
-        button.setSizePolicy(sizePolicy3)
-        button.setMinimumSize(QSize(0, 70))
-        button.setLayoutDirection(Qt.LeftToRight)
-        button.setFont(font)
-        button.setText(name)
-        button.setToolTip(name)
-        button.clicked.connect(self.Button)
-
-        if isTopMenu:
-            self.ui.layout_menus.addWidget(button)
-        else:
-            self.ui.layout_menu_bottom.addWidget(button)
-
     ## ==> SELECT/DESELECT MENU
     ########################################################################
     ## ==> SELECT
@@ -156,23 +132,6 @@ class UIFunctions(MainWindow):
     def labelPage(self, text):
         newText = '| ' + text.upper()
         self.ui.label_top_info_2.setText(newText)
-
-    ## ==> USER ICON
-    ########################################################################
-    def userIcon(self, initialsTooltip, icon, showHide):
-        if showHide:
-            # SET TEXT
-            self.ui.label_user_icon.setText(initialsTooltip)
-
-            # SET ICON
-            if icon:
-                style = self.ui.label_user_icon.styleSheet()
-                setIcon = "QLabel { background-image: " + icon + "; }"
-                self.ui.label_user_icon.setStyleSheet(style + setIcon)
-                self.ui.label_user_icon.setText('')
-                self.ui.label_user_icon.setToolTip(initialsTooltip)
-        else:
-            self.ui.label_user_icon.hide()
 
     ########################################################################
     ## END - GUI FUNCTIONS
@@ -222,7 +181,7 @@ class UIFunctions(MainWindow):
         self.ui.btn_maximize_restore.clicked.connect(lambda: UIFunctions.maximize_restore(self))
 
         ## SHOW ==> CLOSE APPLICATION
-        self.ui.btn_close.clicked.connect(lambda: self.close())
+        self.ui.btn_close.clicked.connect(lambda: self.closeApp())
 
     ########################################################################
     ## END - GUI DEFINITIONS

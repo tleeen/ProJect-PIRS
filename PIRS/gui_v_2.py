@@ -14,11 +14,11 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         # Pirs's functions
-        self.thread = QtCore.QThread()
+        self.threadPirs = QtCore.QThread()
         self.Pirs = Assistant()
-        self.Pirs.moveToThread(self.thread)
+        self.Pirs.moveToThread(self.threadPirs)
         self.ui.pushButton_2.clicked.connect(self.Pirs.voice_activation)
-        self.thread.start()
+        self.threadPirs.start()
 
         ## REMOVE ==> STANDARD TITLE BAR
         UIFunctions.removeTitleBar(True)
@@ -40,7 +40,7 @@ class MainWindow(QMainWindow):
         hide_action = QAction("Hide", self)
         show_action.triggered.connect(self.show)
         hide_action.triggered.connect(self.hide)
-        quit_action.triggered.connect(self.close)
+        quit_action.triggered.connect(self.closeApp)
         tray_menu = QMenu()
         tray_menu.addAction(show_action)
         tray_menu.addAction(hide_action)
@@ -95,7 +95,6 @@ class MainWindow(QMainWindow):
         ########################################################################
         self.show()
         ## ==> END ##
-        # USER COMANDS
 
     # USER COMANDS
     def getCommand(self):
@@ -109,7 +108,10 @@ class MainWindow(QMainWindow):
             self.ui.lineEdit_2.clear()
         else:
             self.ui.label_4.setText("Не все поля были заполнены")
-
+    
+    def closeApp(self):
+        self.threadPirs.exit()
+        self.Pirs.bye()
 
 # SPLASH SCREEN
 class SplashScreen(QMainWindow):
@@ -138,7 +140,7 @@ class SplashScreen(QMainWindow):
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.progress)
         # TIMER IN MILLISECONDS
-        self.timer.start(35)
+        self.timer.start(25)
 
         ## SHOW ==> MAIN WINDOW
         ########################################################################

@@ -1,4 +1,3 @@
-import pyaudio
 from datetime import datetime
 import webbrowser as wb
 from fuzzywuzzy import fuzz

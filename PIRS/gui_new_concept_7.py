@@ -539,6 +539,19 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_home)
         self.page_user = QWidget()
         self.page_user.setObjectName(u"page_user")
+        self.page_user.setStyleSheet(u"QLineEdit {\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(27, 29, 35);\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
         self.verticalLayout_6 = QVBoxLayout(self.page_user)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Minimum)
@@ -573,26 +586,8 @@ class Ui_MainWindow(object):
 
         self.lineEdit = QLineEdit(self.page_user)
         self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setStyleSheet(u"QLineEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(27, 29, 35);\n"
-"	padding-left: 10px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
-"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
 
         self.verticalLayout_7.addWidget(self.lineEdit)
-
-        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_7.addItem(self.verticalSpacer_8)
-
 
         self.verticalLayout_6.addLayout(self.verticalLayout_7)
 
@@ -611,40 +606,18 @@ class Ui_MainWindow(object):
 
         self.lineEdit_2 = QLineEdit(self.page_user)
         self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setStyleSheet(u"QLineEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(27, 29, 35);\n"
-"	padding-left: 10px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
-"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
 
         self.verticalLayout_8.addWidget(self.lineEdit_2)
-
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_8.addItem(self.verticalSpacer_4)
-
 
         self.verticalLayout_6.addLayout(self.verticalLayout_8)
 
         self.label_4 = QLabel(self.page_user)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setFont(font)
-        self.label_4.setStyleSheet(u"color:red;")
+        self.label_4.setStyleSheet(u"color:red; margin: 8 0 2 0")
         self.label_4.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_6.addWidget(self.label_4)
-
-        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_9)
 
         self.pushButton = QPushButton(self.page_user)
         self.pushButton.setObjectName(u"pushButton")
@@ -776,15 +749,15 @@ class Ui_MainWindow(object):
         self.btn_toggle_menu.setText("")
         self.label_title_bar_top.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u043e\u0439 \u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 - PIRS", None))
 #if QT_CONFIG(tooltip)
-        self.btn_minimize.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
+        self.btn_minimize.setToolTip(QCoreApplication.translate("MainWindow", u"Свернуть", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_minimize.setText("")
 #if QT_CONFIG(tooltip)
-        self.btn_maximize_restore.setToolTip(QCoreApplication.translate("MainWindow", u"Maximize", None))
+        self.btn_maximize_restore.setToolTip(QCoreApplication.translate("MainWindow", u"Раскрыть", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_maximize_restore.setText("")
 #if QT_CONFIG(tooltip)
-        self.btn_close.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
+        self.btn_close.setToolTip(QCoreApplication.translate("MainWindow", u"Закрыть", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_close.setText("")
         self.label_top_info_1.setText("")
@@ -794,7 +767,7 @@ class Ui_MainWindow(object):
         self.btn_settings.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.label_5.setText("")
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0410\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u044f", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u0441\u043e\u0431\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0439 \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f :", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f:", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044b\u043b\u043a\u0443 \u043d\u0430 \u0441\u0430\u0439\u0442", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0433\u043e\u043b\u043e\u0441\u043e\u0432\u0443\u044e \u043a\u043e\u043c\u0430\u043d\u0434\u0443", None))
         self.label_4.setText("")
