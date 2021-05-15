@@ -112,8 +112,7 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"background: transparent;\n"
-"color: rgb(210, 210, 210);")
+        self.centralwidget.setStyleSheet(u"background: transparent;\n" "color: rgb(210, 210, 210);")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -408,7 +407,7 @@ class Ui_MainWindow(object):
         self.btn_user.setStyleSheet(u"QPushButton {	\n"
 "	background-image: url(:/16x16/icons/16x16/cil-user-follow.png);\n"
 "	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
+"       background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 28px solid rgb(27, 29, 35);\n"
 "	background-color: rgb(27, 29, 35);\n"
@@ -425,7 +424,6 @@ class Ui_MainWindow(object):
 "}")
 
         self.layout_menus.addWidget(self.btn_user)
-
 
         self.verticalLayout_5.addWidget(self.frame_menus, 0, Qt.AlignTop)
 
@@ -449,7 +447,7 @@ class Ui_MainWindow(object):
         self.btn_settings.setStyleSheet(u"QPushButton {	\n"
 "	background-image: url(:/20x20/icons/20x20/cil-settings.png);\n"
 "	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
+"       background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 26px solid rgb(27, 29, 35);\n"
 "	background-color: rgb(27, 29, 35);\n"
@@ -467,9 +465,7 @@ class Ui_MainWindow(object):
 
         self.layout_menu_bottom.addWidget(self.btn_settings)
 
-
         self.verticalLayout_5.addWidget(self.frame_extra_menus, 0, Qt.AlignBottom)
-
 
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
 
@@ -496,7 +492,19 @@ class Ui_MainWindow(object):
         font4.setFamily(u"Segoe UI")
         font4.setPointSize(36)
         self.stackedWidget.setFont(font4)
-        self.stackedWidget.setStyleSheet(u"background: transparent;")
+        self.stackedWidget.setStyleSheet(u"QPushButton {\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"	border-radius: 5px;	\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(57, 65, 80);\n"
+"	border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(85, 170, 255);\n"
+"}\n"
+"background: transparent;\n")
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
         self.verticalLayout_10 = QVBoxLayout(self.page_home)
@@ -517,18 +525,6 @@ class Ui_MainWindow(object):
         self.pushButton_2.setMinimumSize(QSize(500, 200))
         self.pushButton_2.setMaximumSize(QSize(500, 200))
         self.pushButton_2.setFont(font4)
-        self.pushButton_2.setStyleSheet(u"QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
 
         self.verticalLayout_10.addWidget(self.pushButton_2, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
@@ -543,7 +539,10 @@ class Ui_MainWindow(object):
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
 "	border: 2px solid rgb(27, 29, 35);\n"
-"	padding-left: 10px;\n"
+"	padding-left: 5px;\n"
+"	width: 740px;\n"
+"	margin-left: 60px;\n"
+"	margin-right: 60px;\n"
 "}\n"
 "QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
@@ -570,7 +569,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7 = QVBoxLayout()
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Minimum)
+        self.verticalSpacer_2 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Minimum)
 
         self.verticalLayout_7.addItem(self.verticalSpacer_2)
 
@@ -585,6 +584,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.addWidget(self.label_3)
 
         self.lineEdit = QLineEdit(self.page_user)
+        self.lineEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         self.lineEdit.setObjectName(u"lineEdit")
 
         self.verticalLayout_7.addWidget(self.lineEdit)
@@ -605,6 +605,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addWidget(self.label_2)
 
         self.lineEdit_2 = QLineEdit(self.page_user)
+        self.lineEdit_2.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         self.lineEdit_2.setObjectName(u"lineEdit_2")
 
         self.verticalLayout_8.addWidget(self.lineEdit_2)
@@ -624,36 +625,8 @@ class Ui_MainWindow(object):
         self.pushButton.setMinimumSize(QSize(200, 60))
         self.pushButton.setMaximumSize(QSize(200, 60))
         self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet(u"QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
 
         self.verticalLayout_6.addWidget(self.pushButton, 0, Qt.AlignHCenter|Qt.AlignVCenter)
-
-        self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_12)
-
-        self.verticalSpacer_11 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_11)
-
-        self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_10)
-
-        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_6)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -667,7 +640,6 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_settings)
 
         self.verticalLayout_9.addWidget(self.stackedWidget)
-
 
         self.verticalLayout_4.addWidget(self.frame_content)
 

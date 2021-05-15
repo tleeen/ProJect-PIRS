@@ -1355,7 +1355,20 @@ QPushButton:pressed {
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background: transparent;</string>
+                   <string notr="true">QPushButton {
+	border: 2px solid rgb(52, 59, 72);
+	border-radius: 5px;	
+	background-color: rgb(52, 59, 72);
+}
+QPushButton:hover {
+	background-color: rgb(57, 65, 80);
+	border: 2px solid rgb(61, 70, 86);
+}
+QPushButton:pressed {	
+	background-color: rgb(85, 170, 255);
+}
+background: transparent;
+</string>
                   </property>
                   <property name="currentIndex">
                    <number>1</number>
@@ -1409,18 +1422,7 @@ QPushButton:pressed {
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">QPushButton {
-	border: 2px solid rgb(52, 59, 72);
-	border-radius: 5px;	
-	background-color: rgb(52, 59, 72);
-}
-QPushButton:hover {
-	background-color: rgb(57, 65, 80);
-	border: 2px solid rgb(61, 70, 86);
-}
-QPushButton:pressed {	
-	background-color: rgb(85, 170, 255);
-}</string>
+                       <string notr="true"/>
                       </property>
                       <property name="text">
                        <string>Активация</string>
@@ -1450,6 +1452,9 @@ QPushButton:pressed {
 	border-radius: 5px;
 	border: 2px solid rgb(27, 29, 35);
 	padding-left: 10px;
+	width: 740px;
+	margin-left: 60px;
+	margin-right: 60px;
 }
 QLineEdit:hover {
 	border: 2px solid rgb(64, 71, 88);
@@ -1505,7 +1510,7 @@ QLineEdit:focus {
                         <property name="sizeHint" stdset="0">
                          <size>
                           <width>20</width>
-                          <height>40</height>
+                          <height>20</height>
                          </size>
                         </property>
                        </spacer>
@@ -1526,20 +1531,38 @@ QLineEdit:focus {
                         </property>
                        </widget>
                       </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0,0,0">
+                      <property name="spacing">
+                       <number>6</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
                       <item>
                        <widget class="QLineEdit" name="lineEdit">
                         <property name="enabled">
                          <bool>true</bool>
                         </property>
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="layoutDirection">
+                         <enum>Qt::LeftToRight</enum>
+                        </property>
                         <property name="styleSheet">
                          <string notr="true"/>
                         </property>
+                        <property name="alignment">
+                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                        </property>
                        </widget>
                       </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <layout class="QVBoxLayout" name="verticalLayout_8">
                       <item>
                        <spacer name="verticalSpacer">
                         <property name="orientation">
@@ -1574,6 +1597,12 @@ QLineEdit:focus {
                       </item>
                       <item>
                        <widget class="QLineEdit" name="lineEdit_2">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
                         <property name="styleSheet">
                          <string notr="true"/>
                         </property>
@@ -1622,75 +1651,12 @@ margin: 8 0 2 0;</string>
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">QPushButton {
-	border: 2px solid rgb(52, 59, 72);
-	border-radius: 5px;	
-	background-color: rgb(52, 59, 72);
-}
-QPushButton:hover {
-	background-color: rgb(57, 65, 80);
-	border: 2px solid rgb(61, 70, 86);
-}
-QPushButton:pressed {	
-	background-color: rgb(85, 170, 255);
-}</string>
+                       <string notr="true"/>
                       </property>
                       <property name="text">
                        <string>OK</string>
                       </property>
                      </widget>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer_12">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer_11">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer_10">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer_6">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
                     </item>
                     <item>
                      <spacer name="verticalSpacer_3">
