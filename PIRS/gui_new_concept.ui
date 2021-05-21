@@ -182,15 +182,6 @@
        </color>
       </brush>
      </colorrole>
-     <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
-        <red>210</red>
-        <green>210</green>
-        <blue>210</blue>
-       </color>
-      </brush>
-     </colorrole>
     </active>
     <inactive>
      <colorrole role="WindowText">
@@ -355,15 +346,6 @@
        </color>
       </brush>
      </colorrole>
-     <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
-        <red>210</red>
-        <green>210</green>
-        <blue>210</blue>
-       </color>
-      </brush>
-     </colorrole>
     </inactive>
     <disabled>
      <colorrole role="WindowText">
@@ -522,15 +504,6 @@
      <colorrole role="ToolTipText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>210</red>
-        <green>210</green>
-        <blue>210</blue>
-       </color>
-      </brush>
-     </colorrole>
-     <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
         <red>210</red>
         <green>210</green>
         <blue>210</blue>
@@ -1371,17 +1344,49 @@ background: transparent;
 </string>
                   </property>
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
                     <item>
+                     <spacer name="verticalSpacer_10">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
                      <widget class="QLabel" name="label_5">
+                      <property name="font">
+                       <font>
+                        <family>Segoe UI</family>
+                        <pointsize>72</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>PIRS</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_6">
+                      <property name="font">
+                       <font>
+                        <family>Segoe UI</family>
+                        <pointsize>22</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
                        <string/>
-                      </property>
-                      <property name="pixmap">
-                       <pixmap>gui/icons/tray_logo.ico</pixmap>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
@@ -1428,6 +1433,32 @@ background: transparent;
                        <string>Активация</string>
                       </property>
                      </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_12">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_11">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
                     </item>
                     <item>
                      <spacer name="verticalSpacer_7">
@@ -1482,6 +1513,19 @@ QLineEdit:focus {
                      </spacer>
                     </item>
                     <item>
+                     <spacer name="verticalSpacer_4">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
                      <widget class="QLabel" name="label">
                       <property name="font">
                        <font>
@@ -1516,6 +1560,19 @@ QLineEdit:focus {
                        </spacer>
                       </item>
                       <item>
+                       <spacer name="verticalSpacer_6">
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>20</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
                        <widget class="QLabel" name="label_3">
                         <property name="font">
                          <font>
@@ -1534,7 +1591,7 @@ QLineEdit:focus {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0,0,0">
+                     <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0,0,0,0">
                       <property name="spacing">
                        <number>6</number>
                       </property>
@@ -1547,7 +1604,7 @@ QLineEdit:focus {
                          <bool>true</bool>
                         </property>
                         <property name="sizePolicy">
-                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                           <horstretch>0</horstretch>
                           <verstretch>0</verstretch>
                          </sizepolicy>
@@ -1562,6 +1619,19 @@ QLineEdit:focus {
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                         </property>
                        </widget>
+                      </item>
+                      <item>
+                       <spacer name="verticalSpacer_9">
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>20</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                       </spacer>
                       </item>
                       <item>
                        <spacer name="verticalSpacer">
@@ -1598,7 +1668,7 @@ QLineEdit:focus {
                       <item>
                        <widget class="QLineEdit" name="lineEdit_2">
                         <property name="sizePolicy">
-                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                           <horstretch>0</horstretch>
                           <verstretch>0</verstretch>
                          </sizepolicy>
@@ -1657,6 +1727,19 @@ margin: 8 0 2 0;</string>
                        <string>OK</string>
                       </property>
                      </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_8">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
                     </item>
                     <item>
                      <spacer name="verticalSpacer_3">

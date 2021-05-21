@@ -1,5 +1,5 @@
 from Assistant import *
-from gui_new_concept_7 import *
+from gui_new_concept_9 import *
 from ui_functions import *
 from ui_splash_screen_2 import Ui_SplashScreen
 import sys
@@ -18,6 +18,7 @@ class MainWindow(QMainWindow):
         self.Pirs = Assistant()
         self.Pirs.moveToThread(self.threadPirs)
         self.ui.pushButton_2.clicked.connect(self.Pirs.voice_activation)
+        self.ui.pushButton_2.clicked.connect(self.fix_label)
         self.threadPirs.start()
 
         ## REMOVE ==> STANDARD TITLE BAR
@@ -95,6 +96,8 @@ class MainWindow(QMainWindow):
         ########################################################################
         self.show()
         ## ==> END ##
+    def fix_label(self):
+        self.ui.label_6.setText("Активирован")
 
     # USER COMANDS
     def getCommand(self):
