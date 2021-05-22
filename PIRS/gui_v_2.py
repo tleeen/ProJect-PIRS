@@ -114,6 +114,9 @@ class MainWindow(QMainWindow):
     
     def closeApp(self):
         self.threadPirs.exit()
+        self.threadPirs.terminate()
+        self.threadPirs.wait(500)
+        self.close()
         self.Pirs.bye()
 
 # SPLASH SCREEN
