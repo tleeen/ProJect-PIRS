@@ -19,6 +19,11 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1000, 720)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QSize(1000, 720))
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
@@ -104,6 +109,7 @@ class Ui_MainWindow(object):
         font.setFamily(u"Segoe UI")
         font.setPointSize(10)
         MainWindow.setFont(font)
+        MainWindow.setLayoutDirection(Qt.LeftToRight)
         MainWindow.setStyleSheet(u"QMainWindow {background: transparent; }\n"
 "QToolTip {\n"
 "	color: #ffffff;\n"
@@ -149,11 +155,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.btn_toggle_menu = QPushButton(self.frame_toggle)
         self.btn_toggle_menu.setObjectName(u"btn_toggle_menu")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_toggle_menu.sizePolicy().hasHeightForWidth())
-        self.btn_toggle_menu.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.btn_toggle_menu.sizePolicy().hasHeightForWidth())
+        self.btn_toggle_menu.setSizePolicy(sizePolicy1)
         self.btn_toggle_menu.setStyleSheet(u"QPushButton {\n"
 "	background-image: url(:/24x24/icons/24x24/cil-menu.png);\n"
 "	background-position: center;\n"
@@ -226,11 +232,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.btn_minimize = QPushButton(self.frame_btns_right)
         self.btn_minimize.setObjectName(u"btn_minimize")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.btn_minimize.sizePolicy().hasHeightForWidth())
-        self.btn_minimize.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.btn_minimize.sizePolicy().hasHeightForWidth())
+        self.btn_minimize.setSizePolicy(sizePolicy2)
         self.btn_minimize.setStyleSheet(u"QPushButton {	\n"
 "	border: none;\n"
 "	background-color: transparent;\n"
@@ -249,8 +255,8 @@ class Ui_MainWindow(object):
 
         self.btn_maximize_restore = QPushButton(self.frame_btns_right)
         self.btn_maximize_restore.setObjectName(u"btn_maximize_restore")
-        sizePolicy1.setHeightForWidth(self.btn_maximize_restore.sizePolicy().hasHeightForWidth())
-        self.btn_maximize_restore.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.btn_maximize_restore.sizePolicy().hasHeightForWidth())
+        self.btn_maximize_restore.setSizePolicy(sizePolicy2)
         self.btn_maximize_restore.setStyleSheet(u"QPushButton {	\n"
 "	border: none;\n"
 "	background-color: transparent;\n"
@@ -269,8 +275,8 @@ class Ui_MainWindow(object):
 
         self.btn_close = QPushButton(self.frame_btns_right)
         self.btn_close.setObjectName(u"btn_close")
-        sizePolicy1.setHeightForWidth(self.btn_close.sizePolicy().hasHeightForWidth())
-        self.btn_close.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.btn_close.sizePolicy().hasHeightForWidth())
+        self.btn_close.setSizePolicy(sizePolicy2)
         self.btn_close.setStyleSheet(u"QPushButton {	\n"
 "	border: none;\n"
 "	background-color: transparent;\n"
@@ -345,11 +351,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.frame_left_menu = QFrame(self.frame_center)
         self.frame_left_menu.setObjectName(u"frame_left_menu")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.frame_left_menu.sizePolicy().hasHeightForWidth())
-        self.frame_left_menu.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.frame_left_menu.sizePolicy().hasHeightForWidth())
+        self.frame_left_menu.setSizePolicy(sizePolicy3)
         self.frame_left_menu.setMaximumSize(QSize(70, 16777215))
         self.frame_left_menu.setLayoutDirection(Qt.LeftToRight)
         self.frame_left_menu.setStyleSheet(u"background-color: rgb(27, 29, 35);")
@@ -369,11 +375,8 @@ class Ui_MainWindow(object):
         self.layout_menus.setContentsMargins(0, 0, 0, 0)
         self.btn_home = QPushButton(self.frame_menus)
         self.btn_home.setObjectName(u"btn_home")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.btn_home.sizePolicy().hasHeightForWidth())
-        self.btn_home.setSizePolicy(sizePolicy3)
+        sizePolicy.setHeightForWidth(self.btn_home.sizePolicy().hasHeightForWidth())
+        self.btn_home.setSizePolicy(sizePolicy)
         self.btn_home.setMinimumSize(QSize(0, 60))
         self.btn_home.setFont(font2)
         self.btn_home.setLayoutDirection(Qt.LeftToRight)
@@ -400,8 +403,8 @@ class Ui_MainWindow(object):
 
         self.btn_user = QPushButton(self.frame_menus)
         self.btn_user.setObjectName(u"btn_user")
-        sizePolicy3.setHeightForWidth(self.btn_user.sizePolicy().hasHeightForWidth())
-        self.btn_user.setSizePolicy(sizePolicy3)
+        sizePolicy.setHeightForWidth(self.btn_user.sizePolicy().hasHeightForWidth())
+        self.btn_user.setSizePolicy(sizePolicy)
         self.btn_user.setMinimumSize(QSize(0, 60))
         self.btn_user.setFont(font2)
         self.btn_user.setLayoutDirection(Qt.LeftToRight)
@@ -431,8 +434,8 @@ class Ui_MainWindow(object):
 
         self.frame_extra_menus = QFrame(self.frame_left_menu)
         self.frame_extra_menus.setObjectName(u"frame_extra_menus")
-        sizePolicy2.setHeightForWidth(self.frame_extra_menus.sizePolicy().hasHeightForWidth())
-        self.frame_extra_menus.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.frame_extra_menus.sizePolicy().hasHeightForWidth())
+        self.frame_extra_menus.setSizePolicy(sizePolicy3)
         self.frame_extra_menus.setFrameShape(QFrame.NoFrame)
         self.frame_extra_menus.setFrameShadow(QFrame.Raised)
         self.layout_menu_bottom = QVBoxLayout(self.frame_extra_menus)
@@ -441,8 +444,8 @@ class Ui_MainWindow(object):
         self.layout_menu_bottom.setContentsMargins(0, 0, 0, 25)
         self.btn_settings = QPushButton(self.frame_extra_menus)
         self.btn_settings.setObjectName(u"btn_settings")
-        sizePolicy3.setHeightForWidth(self.btn_settings.sizePolicy().hasHeightForWidth())
-        self.btn_settings.setSizePolicy(sizePolicy3)
+        sizePolicy.setHeightForWidth(self.btn_settings.sizePolicy().hasHeightForWidth())
+        self.btn_settings.setSizePolicy(sizePolicy)
         self.btn_settings.setMinimumSize(QSize(0, 60))
         self.btn_settings.setFont(font2)
         self.btn_settings.setLayoutDirection(Qt.LeftToRight)
@@ -492,147 +495,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setContentsMargins(5, 5, 5, 5)
         self.stackedWidget = QStackedWidget(self.frame_content)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setStyleSheet(u"background: transparent;")
-        self.page_home = QWidget()
-        self.page_home.setObjectName(u"page_home")
-        self.verticalLayout_10 = QVBoxLayout(self.page_home)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.label_6 = QLabel(self.page_home)
-        self.label_6.setObjectName(u"label_6")
         font4 = QFont()
         font4.setFamily(u"Segoe UI")
-        font4.setPointSize(40)
-        self.label_6.setFont(font4)
-        self.label_6.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_10.addWidget(self.label_6)
-
-        self.label_7 = QLabel(self.page_home)
-        self.label_7.setObjectName(u"label_7")
-        font5 = QFont()
-        font5.setFamily(u"Segoe UI")
-        font5.setPointSize(15)
-        self.label_7.setFont(font5)
-        self.label_7.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_10.addWidget(self.label_7)
-
-        self.stackedWidget.addWidget(self.page_home)
-        self.page_user = QWidget()
-        self.page_user.setObjectName(u"page_user")
-        self.verticalLayout_6 = QVBoxLayout(self.page_user)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Minimum)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_5)
-
-        self.label = QLabel(self.page_user)
-        self.label.setObjectName(u"label")
-        font6 = QFont()
-        font6.setFamily(u"Segoe UI")
-        font6.setPointSize(16)
-        self.label.setFont(font6)
-        self.label.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_6.addWidget(self.label)
-
-        self.verticalLayout_7 = QVBoxLayout()
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Minimum)
-
-        self.verticalLayout_7.addItem(self.verticalSpacer_2)
-
-        self.label_3 = QLabel(self.page_user)
-        self.label_3.setObjectName(u"label_3")
-        font7 = QFont()
-        font7.setFamily(u"Segoe UI")
-        font7.setPointSize(12)
-        self.label_3.setFont(font7)
-        self.label_3.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_7.addWidget(self.label_3)
-
-        self.lineEdit = QLineEdit(self.page_user)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setStyleSheet(u"QLineEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(27, 29, 35);\n"
-"	padding-left: 10px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
-"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
-
-        self.verticalLayout_7.addWidget(self.lineEdit)
-
-        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_7.addItem(self.verticalSpacer_8)
-
-
-        self.verticalLayout_6.addLayout(self.verticalLayout_7)
-
-        self.verticalLayout_8 = QVBoxLayout()
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalSpacer = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Minimum)
-
-        self.verticalLayout_8.addItem(self.verticalSpacer)
-
-        self.label_2 = QLabel(self.page_user)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font7)
-        self.label_2.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_8.addWidget(self.label_2)
-
-        self.lineEdit_2 = QLineEdit(self.page_user)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setStyleSheet(u"QLineEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(27, 29, 35);\n"
-"	padding-left: 10px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
-"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
-
-        self.verticalLayout_8.addWidget(self.lineEdit_2)
-
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_8.addItem(self.verticalSpacer_4)
-
-
-        self.verticalLayout_6.addLayout(self.verticalLayout_8)
-
-        self.label_4 = QLabel(self.page_user)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setFont(font)
-        self.label_4.setStyleSheet(u"color:red;")
-        self.label_4.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_6.addWidget(self.label_4)
-
-        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_9)
-
-        self.pushButton = QPushButton(self.page_user)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(200, 60))
-        self.pushButton.setMaximumSize(QSize(200, 60))
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet(u"QPushButton {\n"
+        font4.setPointSize(36)
+        self.stackedWidget.setFont(font4)
+        self.stackedWidget.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
 "	background-color: rgb(52, 59, 72);\n"
@@ -643,25 +510,200 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:pressed {	\n"
 "	background-color: rgb(85, 170, 255);\n"
-"}")
+"}\n"
+"background: transparent;\n"
+"")
+        self.page_home = QWidget()
+        self.page_home.setObjectName(u"page_home")
+        self.verticalLayout_10 = QVBoxLayout(self.page_home)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_6.addWidget(self.pushButton, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.verticalLayout_10.addItem(self.verticalSpacer_10)
+
+        self.label_5 = QLabel(self.page_home)
+        self.label_5.setObjectName(u"label_5")
+        font5 = QFont()
+        font5.setFamily(u"Segoe UI")
+        font5.setPointSize(72)
+        self.label_5.setFont(font5)
+        self.label_5.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.label_5.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_10.addWidget(self.label_5)
+
+        self.verticalSpacer_14 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_10.addItem(self.verticalSpacer_14)
+
+        self.label_6 = QLabel(self.page_home)
+        self.label_6.setObjectName(u"label_6")
+        font6 = QFont()
+        font6.setFamily(u"Segoe UI")
+        font6.setPointSize(22)
+        self.label_6.setFont(font6)
+        self.label_6.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.label_6.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_10.addWidget(self.label_6)
+
+        self.verticalSpacer_13 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_10.addItem(self.verticalSpacer_13)
+
+        self.verticalSpacer_15 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_10.addItem(self.verticalSpacer_15)
+
+        self.pushButton_2 = QPushButton(self.page_home)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setMinimumSize(QSize(500, 200))
+        self.pushButton_2.setMaximumSize(QSize(500, 200))
+        self.pushButton_2.setFont(font4)
+        self.pushButton_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_2.setStyleSheet(u"")
+
+        self.verticalLayout_10.addWidget(self.pushButton_2, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_6.addItem(self.verticalSpacer_12)
+        self.verticalLayout_10.addItem(self.verticalSpacer_12)
 
         self.verticalSpacer_11 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_6.addItem(self.verticalSpacer_11)
+        self.verticalLayout_10.addItem(self.verticalSpacer_11)
 
-        self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_6.addItem(self.verticalSpacer_10)
+        self.verticalLayout_10.addItem(self.verticalSpacer_7)
+
+        self.stackedWidget.addWidget(self.page_home)
+        self.page_user = QWidget()
+        self.page_user.setObjectName(u"page_user")
+        self.page_user.setStyleSheet(u"QLineEdit {\n"
+"	width: 10px;\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(27, 29, 35);\n"
+"	padding-left: 10px;\n"
+"	width: 740px;\n"
+"	margin-left: 60px;\n"
+"	margin-right: 60px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+        self.verticalLayout_6 = QVBoxLayout(self.page_user)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_5)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_4)
+
+        self.label = QLabel(self.page_user)
+        self.label.setObjectName(u"label")
+        font7 = QFont()
+        font7.setFamily(u"Segoe UI")
+        font7.setPointSize(16)
+        self.label.setFont(font7)
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_6.addWidget(self.label)
+
+        self.verticalLayout_7 = QVBoxLayout()
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalSpacer_2 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.verticalLayout_7.addItem(self.verticalSpacer_2)
 
         self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_6.addItem(self.verticalSpacer_6)
+        self.verticalLayout_7.addItem(self.verticalSpacer_6)
+
+        self.label_3 = QLabel(self.page_user)
+        self.label_3.setObjectName(u"label_3")
+        font8 = QFont()
+        font8.setFamily(u"Segoe UI")
+        font8.setPointSize(12)
+        self.label_3.setFont(font8)
+        self.label_3.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_7.addWidget(self.label_3)
+
+
+        self.verticalLayout_6.addLayout(self.verticalLayout_7)
+
+        self.verticalLayout_8 = QVBoxLayout()
+        self.verticalLayout_8.setSpacing(6)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, -1, -1, -1)
+        self.lineEdit = QLineEdit(self.page_user)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.lineEdit.sizePolicy().hasHeightForWidth())
+        self.lineEdit.setSizePolicy(sizePolicy)
+        self.lineEdit.setCursor(QCursor(Qt.IBeamCursor))
+        self.lineEdit.setLayoutDirection(Qt.LeftToRight)
+        self.lineEdit.setStyleSheet(u"")
+        self.lineEdit.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.verticalLayout_8.addWidget(self.lineEdit)
+
+        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_9)
+
+        self.verticalSpacer = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer)
+
+        self.label_2 = QLabel(self.page_user)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setFont(font8)
+        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_8.addWidget(self.label_2)
+
+        self.lineEdit_2 = QLineEdit(self.page_user)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        sizePolicy.setHeightForWidth(self.lineEdit_2.sizePolicy().hasHeightForWidth())
+        self.lineEdit_2.setSizePolicy(sizePolicy)
+        self.lineEdit_2.setStyleSheet(u"")
+
+        self.verticalLayout_8.addWidget(self.lineEdit_2)
+
+
+        self.verticalLayout_6.addLayout(self.verticalLayout_8)
+
+        self.label_4 = QLabel(self.page_user)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet(u"color:red;\n"
+"margin: 8 0 2 0;")
+        self.label_4.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_6.addWidget(self.label_4)
+
+        self.pushButton = QPushButton(self.page_user)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setMinimumSize(QSize(200, 60))
+        self.pushButton.setMaximumSize(QSize(200, 60))
+        self.pushButton.setFont(font)
+        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton.setStyleSheet(u"")
+
+        self.verticalLayout_6.addWidget(self.pushButton, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_8)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -670,21 +712,124 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_user)
         self.page_settings = QWidget()
         self.page_settings.setObjectName(u"page_settings")
-        self.horizontalLayout_9 = QHBoxLayout(self.page_settings)
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.label_9 = QLabel(self.page_settings)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setFont(font5)
-        self.label_9.setAlignment(Qt.AlignCenter)
+        self.verticalLayout_11 = QVBoxLayout(self.page_settings)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.verticalSpacer_16 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.horizontalLayout_9.addWidget(self.label_9)
+        self.verticalLayout_11.addItem(self.verticalSpacer_16)
+
+        self.verticalLayout_12 = QVBoxLayout()
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.label_7 = QLabel(self.page_settings)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy4)
+        self.label_7.setFont(font7)
+        self.label_7.setStyleSheet(u"color: rgb(85, 170, 255);")
+
+        self.verticalLayout_12.addWidget(self.label_7, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.verticalSpacer_20 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_12.addItem(self.verticalSpacer_20)
+
+        self.pushButton_3 = QPushButton(self.page_settings)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.pushButton_3.sizePolicy().hasHeightForWidth())
+        self.pushButton_3.setSizePolicy(sizePolicy)
+        self.pushButton_3.setMinimumSize(QSize(400, 100))
+        self.pushButton_3.setMaximumSize(QSize(500, 200))
+        font9 = QFont()
+        font9.setFamily(u"Segoe UI")
+        font9.setPointSize(20)
+        self.pushButton_3.setFont(font9)
+        self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_12.addWidget(self.pushButton_3, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.verticalSpacer_18 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_12.addItem(self.verticalSpacer_18)
+
+
+        self.verticalLayout_11.addLayout(self.verticalLayout_12)
 
         self.label_8 = QLabel(self.page_settings)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setFont(font4)
-        self.label_8.setAlignment(Qt.AlignCenter)
+        sizePolicy4.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
+        self.label_8.setSizePolicy(sizePolicy4)
+        font10 = QFont()
+        font10.setFamily(u"Segoe UI")
+        font10.setPointSize(11)
+        font10.setBold(True)
+        font10.setWeight(75)
+        self.label_8.setFont(font10)
+        self.label_8.setStyleSheet(u"color: rgb(85, 170, 255);")
 
-        self.horizontalLayout_9.addWidget(self.label_8)
+        self.verticalLayout_11.addWidget(self.label_8)
+
+        self.verticalSpacer_19 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_11.addItem(self.verticalSpacer_19)
+
+        self.verticalLayout_13 = QVBoxLayout()
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.label_9 = QLabel(self.page_settings)
+        self.label_9.setObjectName(u"label_9")
+        sizePolicy.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy)
+        self.label_9.setFont(font7)
+        self.label_9.setStyleSheet(u"color: rgb(85, 170, 255);")
+
+        self.verticalLayout_13.addWidget(self.label_9, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.verticalSpacer_21 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_13.addItem(self.verticalSpacer_21)
+
+        self.lineEdit_3 = QLineEdit(self.page_settings)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setMinimumSize(QSize(800, 0))
+        self.lineEdit_3.setStyleSheet(u"QLineEdit {\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(27, 29, 35);\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+
+        self.verticalLayout_13.addWidget(self.lineEdit_3, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_13.addItem(self.verticalSpacer_22)
+
+        self.pushButton_4 = QPushButton(self.page_settings)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        sizePolicy.setHeightForWidth(self.pushButton_4.sizePolicy().hasHeightForWidth())
+        self.pushButton_4.setSizePolicy(sizePolicy)
+        self.pushButton_4.setMinimumSize(QSize(200, 60))
+        self.pushButton_4.setMaximumSize(QSize(200, 60))
+        self.pushButton_4.setFont(font)
+        self.pushButton_4.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_13.addWidget(self.pushButton_4, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+
+        self.verticalLayout_11.addLayout(self.verticalLayout_13)
+
+        self.verticalSpacer_17 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_11.addItem(self.verticalSpacer_17)
 
         self.stackedWidget.addWidget(self.page_settings)
 
@@ -760,7 +905,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -787,15 +932,19 @@ class Ui_MainWindow(object):
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u043c\u0430\u0448\u043d\u044f\u044f \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", None))
         self.btn_user.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b", None))
         self.btn_settings.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Page Index 0", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u0441\u043e\u0431\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0439 \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f :", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"P I R S", None))
+        self.label_6.setText("")
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0410\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u044f", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f:", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044b\u043b\u043a\u0443 \u043d\u0430 \u0441\u0430\u0439\u0442", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0433\u043e\u043b\u043e\u0441\u043e\u0432\u0443\u044e \u043a\u043e\u043c\u0430\u043d\u0434\u0443", None))
         self.label_4.setText("")
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"OK", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Page Index 1", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"SETTINGS", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f \u043a \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044e (\u041f\u0441\u0441, \u043d\u0430\u0436\u043c\u0438 \u043d\u0430 \u043a\u043d\u043e\u043f\u043a\u0443)", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u0418 \u043d \u0441 \u0442 \u0440 \u0443 \u043a \u0446 \u0438 \u044f", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043c\u0435\u043d\u0430 \u0441\u043b\u043e\u0432\u0430 \u0430\u0442\u0438\u0432\u0430\u0446\u0438\u0438 ", None))
+        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"OK", None))
         self.label_credits.setText("")
         self.label_version.setText("")
     # retranslateUi
