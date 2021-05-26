@@ -206,7 +206,8 @@ class Ui_MainWindow(object):
         self.frame_top_btns = QFrame(self.frame_top_right)
         self.frame_top_btns.setObjectName(u"frame_top_btns")
         self.frame_top_btns.setMaximumSize(QSize(16777215, 30))
-        self.frame_top_btns.setStyleSheet(u"background-color: rgba(33, 37, 43, 150);")
+        self.frame_top_btns.setStyleSheet(u"background-color: rgba(33, 37, 43, 150);\n"
+"padding: 1px")
         self.frame_top_btns.setFrameShape(QFrame.NoFrame)
         self.frame_top_btns.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.frame_top_btns)
@@ -612,6 +613,7 @@ class Ui_MainWindow(object):
         font7.setFamily(u"Segoe UI")
         font7.setPointSize(16)
         self.label.setFont(font7)
+        self.label.setStyleSheet(u"color: rgb(85, 170, 255);")
         self.label.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_6.addWidget(self.label)
@@ -838,28 +840,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setContentsMargins(0, 0, 2, 0)
         self.frame_label_bottom = QFrame(self.frame_grip)
         self.frame_label_bottom.setObjectName(u"frame_label_bottom")
+        sizePolicy3.setHeightForWidth(self.frame_label_bottom.sizePolicy().hasHeightForWidth())
+        self.frame_label_bottom.setSizePolicy(sizePolicy3)
         self.frame_label_bottom.setFrameShape(QFrame.NoFrame)
         self.frame_label_bottom.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_label_bottom)
         self.horizontalLayout_7.setSpacing(0)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(10, 0, 10, 0)
-        self.label_credits = QLabel(self.frame_label_bottom)
-        self.label_credits.setObjectName(u"label_credits")
-        self.label_credits.setFont(font2)
-        self.label_credits.setStyleSheet(u"color: rgb(98, 103, 111);")
-
-        self.horizontalLayout_7.addWidget(self.label_credits)
-
-        self.label_version = QLabel(self.frame_label_bottom)
-        self.label_version.setObjectName(u"label_version")
-        self.label_version.setMaximumSize(QSize(100, 16777215))
-        self.label_version.setFont(font2)
-        self.label_version.setStyleSheet(u"color: rgb(98, 103, 111);")
-        self.label_version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.horizontalLayout_7.addWidget(self.label_version)
-
 
         self.horizontalLayout_6.addWidget(self.frame_label_bottom)
 
@@ -869,7 +857,7 @@ class Ui_MainWindow(object):
         self.frame_size_grip.setStyleSheet(u"QSizeGrip {\n"
 "	background-image: url(:/16x16/icons/16x16/cil-size-grip.png);\n"
 "	background-position: center;\n"
-"	background-repeat: no-reperat;\n"
+"	background-repeat: no-repeat;\n"
 "}")
         self.frame_size_grip.setFrameShape(QFrame.NoFrame)
         self.frame_size_grip.setFrameShadow(QFrame.Raised)
@@ -892,7 +880,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -923,8 +911,8 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0435\u0437\u0430\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0410\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u044f", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f:", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044b\u043b\u043a\u0443 \u043d\u0430 \u0441\u0430\u0439\u0442", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0433\u043e\u043b\u043e\u0441\u043e\u0432\u0443\u044e \u043a\u043e\u043c\u0430\u043d\u0434\u0443", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0441\u044b\u043b\u043a\u0430 \u043d\u0430 \u0441\u0430\u0439\u0442", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u0430\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u0430", None))
         self.label_4.setText("")
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"OK", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f \u043a \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044e (\u041f\u0441\u0441, \u043d\u0430\u0436\u043c\u0438 \u043d\u0430 \u043a\u043d\u043e\u043f\u043a\u0443)", None))
@@ -932,7 +920,5 @@ class Ui_MainWindow(object):
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043c\u0435\u043d\u0430 \u0441\u043b\u043e\u0432\u0430 \u0430\u0442\u0438\u0432\u0430\u0446\u0438\u0438 ", None))
         self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"OK", None))
-        self.label_credits.setText("")
-        self.label_version.setText("")
     # retranslateUi
 

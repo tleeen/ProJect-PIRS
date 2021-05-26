@@ -747,7 +747,8 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgba(33, 37, 43, 150);</string>
+                <string notr="true">background-color: rgba(33, 37, 43, 150);
+padding: 1px</string>
                </property>
                <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
@@ -1380,7 +1381,7 @@ background: transparent;
 </string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1549,6 +1550,9 @@ QLineEdit:focus {
                         <pointsize>16</pointsize>
                        </font>
                       </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(85, 170, 255);</string>
+                      </property>
                       <property name="text">
                        <string>Для создания команды заполните следующие поля:</string>
                       </property>
@@ -1581,7 +1585,7 @@ QLineEdit:focus {
                          </font>
                         </property>
                         <property name="text">
-                         <string>Введите ссылку на сайт</string>
+                         <string>Ссылка на сайт</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1645,7 +1649,7 @@ QLineEdit:focus {
                          </font>
                         </property>
                         <property name="text">
-                         <string>Введите голосовую команду</string>
+                         <string>Голосовая команда</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2045,6 +2049,12 @@ QLineEdit:focus {
                 </property>
                 <item>
                  <widget class="QFrame" name="frame_label_bottom">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="frameShape">
                    <enum>QFrame::NoFrame</enum>
                   </property>
@@ -2067,45 +2077,6 @@ QLineEdit:focus {
                    <property name="bottomMargin">
                     <number>0</number>
                    </property>
-                   <item>
-                    <widget class="QLabel" name="label_credits">
-                     <property name="font">
-                      <font>
-                       <family>Segoe UI</family>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: rgb(98, 103, 111);</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="label_version">
-                     <property name="maximumSize">
-                      <size>
-                       <width>100</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <family>Segoe UI</family>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: rgb(98, 103, 111);</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -2121,7 +2092,7 @@ QLineEdit:focus {
                    <string notr="true">QSizeGrip {
 	background-image: url(:/16x16/icons/16x16/cil-size-grip.png);
 	background-position: center;
-	background-repeat: no-reperat;
+	background-repeat: no-repeat;
 }</string>
                   </property>
                   <property name="frameShape">
