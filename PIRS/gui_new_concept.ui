@@ -1380,7 +1380,7 @@ background: transparent;
 </string>
                   </property>
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1438,10 +1438,10 @@ background: transparent;
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">color: rgb(85, 170, 255);</string>
+                       <string notr="true">color: rgb(220, 20, 60);</string>
                       </property>
                       <property name="text">
-                       <string/>
+                       <string>Дезактивирован</string>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>

@@ -15,13 +15,14 @@ TIMEOUT_LENGTH = 3
 SAMPLE_WIDTH = 2
 SHORT_NORMALIZE = 1.0 / 32768.0
 Energy_speech = 100
-hot_word = 'пирс'
 
 
 class Recognizer():
 
     def __init__(self):
         self.Threshold = 0
+        self.hot_word = 'пирс'
+        self.flag = False
         # vosk
         self.model = Model("speech_model")
         self.rec = KaldiRecognizer(self.model, RATE)
@@ -82,10 +83,11 @@ class Recognizer():
 
     def start(self):
         while True:
-            data = self.stream.read(FPB)
-            if self.rec.AcceptWaveform(data):
-                text = json.loads(self.rec.Result())
-                task = text['text']
-                if hot_word in task:
-                    playsound("audio/Listen_to_you.mp3")
-                    return True
+            if self.flag:
+                data = self.stream.read(FPB)
+                if self.rec.AcceptWaveform(data):
+                    text = json.loads(self.rec.Result())
+                    task = text['text']
+                    if self.hot_word in task:
+                        playsound("audio/Listen_to_you.mp3")
+                        return True

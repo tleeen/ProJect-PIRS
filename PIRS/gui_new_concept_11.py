@@ -557,7 +557,7 @@ class Ui_MainWindow(object):
         font6.setFamily(u"Segoe UI")
         font6.setPointSize(22)
         self.label_6.setFont(font6)
-        self.label_6.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.label_6.setStyleSheet(u"color: rgb(220, 20, 60);")
         self.label_6.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_10.addWidget(self.label_6)
@@ -892,7 +892,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -920,7 +920,7 @@ class Ui_MainWindow(object):
         self.btn_user.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b", None))
         self.btn_settings.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"P I R S", None))
-        self.label_6.setText("")
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0435\u0437\u0430\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0410\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u044f", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f:", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044b\u043b\u043a\u0443 \u043d\u0430 \u0441\u0430\u0439\u0442", None))
