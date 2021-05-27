@@ -20,7 +20,6 @@ class Assistant(QtCore.QObject):
     def __init__(self):
         super().__init__()
         self.rc = Recognizer()
-        self.flag = True
         # default commands of PIRS
         self.tasks = {
             # internet and social networks
@@ -52,7 +51,7 @@ class Assistant(QtCore.QObject):
 
     def voice_activation(self):
         while True:
-            if self.rc.start() and self.flag:
+            if self.rc.start():
                 self.cmd(self.rc.speech_to_text())
 
     # commands execution
@@ -75,6 +74,7 @@ class Assistant(QtCore.QObject):
 
     # cashing technology
     def getOftenTask(self):
+        max = -1
         for key, value in self.count.items():
             if value > max:
                 max = value
@@ -207,11 +207,8 @@ class Assistant(QtCore.QObject):
         else:
             playsound(r"audio/Greetings_at_night.mp3")
     
-    def stopListening(self):
-        self.flag = False
-
-    def startListening(self):
-        self.flag = True
+    def changeName(self, name):
+        self.rc.hot_word = name
 
     @staticmethod
     def bye():

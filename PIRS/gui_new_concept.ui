@@ -188,6 +188,15 @@
        </color>
       </brush>
      </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="NoBrush">
+       <color alpha="128">
+        <red>210</red>
+        <green>210</green>
+        <blue>210</blue>
+       </color>
+      </brush>
+     </colorrole>
     </active>
     <inactive>
      <colorrole role="WindowText">
@@ -352,6 +361,15 @@
        </color>
       </brush>
      </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="NoBrush">
+       <color alpha="128">
+        <red>210</red>
+        <green>210</green>
+        <blue>210</blue>
+       </color>
+      </brush>
+     </colorrole>
     </inactive>
     <disabled>
      <colorrole role="WindowText">
@@ -510,6 +528,15 @@
      <colorrole role="ToolTipText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
+        <red>210</red>
+        <green>210</green>
+        <blue>210</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="NoBrush">
+       <color alpha="128">
         <red>210</red>
         <green>210</green>
         <blue>210</blue>
@@ -720,7 +747,8 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgba(33, 37, 43, 150);</string>
+                <string notr="true">background-color: rgba(33, 37, 43, 150);
+padding: 1px</string>
                </property>
                <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
@@ -1411,10 +1439,10 @@ background: transparent;
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">color: rgb(85, 170, 255);</string>
+                       <string notr="true">color: rgb(220, 20, 60);</string>
                       </property>
                       <property name="text">
-                       <string/>
+                       <string>Дезактивирован</string>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
@@ -1429,20 +1457,7 @@ background: transparent;
                       <property name="sizeHint" stdset="0">
                        <size>
                         <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer_15">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
+                        <height>80</height>
                        </size>
                       </property>
                      </spacer>
@@ -1479,32 +1494,6 @@ background: transparent;
                      </widget>
                     </item>
                     <item>
-                     <spacer name="verticalSpacer_12">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer_11">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
                      <spacer name="verticalSpacer_7">
                       <property name="orientation">
                        <enum>Qt::Vertical</enum>
@@ -1512,7 +1501,7 @@ background: transparent;
                       <property name="sizeHint" stdset="0">
                        <size>
                         <width>20</width>
-                        <height>40</height>
+                        <height>120</height>
                        </size>
                       </property>
                      </spacer>
@@ -1541,22 +1530,6 @@ QLineEdit:focus {
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_6">
                     <item>
-                     <spacer name="verticalSpacer_5">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeType">
-                       <enum>QSizePolicy::Minimum</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
                      <spacer name="verticalSpacer_4">
                       <property name="orientation">
                        <enum>Qt::Vertical</enum>
@@ -1564,7 +1537,7 @@ QLineEdit:focus {
                       <property name="sizeHint" stdset="0">
                        <size>
                         <width>20</width>
-                        <height>40</height>
+                        <height>80</height>
                        </size>
                       </property>
                      </spacer>
@@ -1577,6 +1550,9 @@ QLineEdit:focus {
                         <pointsize>16</pointsize>
                        </font>
                       </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(85, 170, 255);</string>
+                      </property>
                       <property name="text">
                        <string>Для создания команды заполните следующие поля:</string>
                       </property>
@@ -1588,22 +1564,6 @@ QLineEdit:focus {
                     <item>
                      <layout class="QVBoxLayout" name="verticalLayout_7">
                       <item>
-                       <spacer name="verticalSpacer_2">
-                        <property name="orientation">
-                         <enum>Qt::Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                         <enum>QSizePolicy::Minimum</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>20</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item>
                        <spacer name="verticalSpacer_6">
                         <property name="orientation">
                          <enum>Qt::Vertical</enum>
@@ -1611,7 +1571,7 @@ QLineEdit:focus {
                         <property name="sizeHint" stdset="0">
                          <size>
                           <width>20</width>
-                          <height>40</height>
+                          <height>60</height>
                          </size>
                         </property>
                        </spacer>
@@ -1625,7 +1585,7 @@ QLineEdit:focus {
                          </font>
                         </property>
                         <property name="text">
-                         <string>Введите ссылку на сайт</string>
+                         <string>Ссылка на сайт</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1635,7 +1595,7 @@ QLineEdit:focus {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0,0,0,0">
+                     <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0,0,0">
                       <property name="spacing">
                        <number>6</number>
                       </property>
@@ -1681,23 +1641,7 @@ QLineEdit:focus {
                         <property name="sizeHint" stdset="0">
                          <size>
                           <width>20</width>
-                          <height>40</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item>
-                       <spacer name="verticalSpacer">
-                        <property name="orientation">
-                         <enum>Qt::Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                         <enum>QSizePolicy::Minimum</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>20</width>
-                          <height>30</height>
+                          <height>70</height>
                          </size>
                         </property>
                        </spacer>
@@ -1711,7 +1655,7 @@ QLineEdit:focus {
                          </font>
                         </property>
                         <property name="text">
-                         <string>Введите голосовую команду</string>
+                         <string>Голосовая команда</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1798,20 +1742,7 @@ margin: 8 0 2 0;</string>
                       <property name="sizeHint" stdset="0">
                        <size>
                         <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer_3">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
+                        <height>80</height>
                        </size>
                       </property>
                      </spacer>
@@ -1997,7 +1928,7 @@ margin: 8 0 2 0;</string>
                        </spacer>
                       </item>
                       <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                       <widget class="QLineEdit" name="lineEdit_3">
+                       <widget class="QLineEdit" name="editName">
                         <property name="minimumSize">
                          <size>
                           <width>800</width>
@@ -2136,6 +2067,12 @@ QLineEdit:focus {
                 </property>
                 <item>
                  <widget class="QFrame" name="frame_label_bottom">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="frameShape">
                    <enum>QFrame::NoFrame</enum>
                   </property>
@@ -2158,45 +2095,6 @@ QLineEdit:focus {
                    <property name="bottomMargin">
                     <number>0</number>
                    </property>
-                   <item>
-                    <widget class="QLabel" name="label_credits">
-                     <property name="font">
-                      <font>
-                       <family>Segoe UI</family>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: rgb(98, 103, 111);</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="label_version">
-                     <property name="maximumSize">
-                      <size>
-                       <width>100</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <family>Segoe UI</family>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: rgb(98, 103, 111);</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -2212,7 +2110,7 @@ QLineEdit:focus {
                    <string notr="true">QSizeGrip {
 	background-image: url(:/16x16/icons/16x16/cil-size-grip.png);
 	background-position: center;
-	background-repeat: no-reperat;
+	background-repeat: no-repeat;
 }</string>
                   </property>
                   <property name="frameShape">

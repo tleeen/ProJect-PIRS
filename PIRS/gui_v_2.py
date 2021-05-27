@@ -1,5 +1,5 @@
 from Assistant import *
-from gui_new_concept_10 import *
+from gui_new_concept_11 import *
 from ui_functions import *
 from ui_splash_screen_2 import Ui_SplashScreen
 import sys
@@ -18,7 +18,7 @@ class MainWindow(QMainWindow):
         self.Pirs = Assistant()
         self.Pirs.moveToThread(self.threadPirs)
         self.ui.pushButton_2.clicked.connect(self.Pirs.voice_activation)
-        self.ui.pushButton_2.clicked.connect(self.fix_label)
+        self.ui.pushButton_2.clicked.connect(self.modePirs)
         self.threadPirs.start()
 
         ## REMOVE ==> STANDARD TITLE BAR
@@ -85,6 +85,7 @@ class MainWindow(QMainWindow):
         self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
 
         self.ui.pushButton.clicked.connect(self.getCommand)
+        self.ui.pushButton_4.clicked.connect(self.getNewName)
 
 
         ## ==> LOAD DEFINITIONS
@@ -95,9 +96,7 @@ class MainWindow(QMainWindow):
         ## SHOW ==> MAIN WINDOW
         ########################################################################
         self.show()
-        ## ==> END ##
-    def fix_label(self):
-        self.ui.label_6.setText("Активирован")
+        ## ==> END ##   
 
     # USER COMANDS
     def getCommand(self):
@@ -105,6 +104,8 @@ class MainWindow(QMainWindow):
         command = self.ui.lineEdit_2.text()
         if command != "" and url != "":
             self.ui.label_4.setText("")
+            url.lower()
+            command.lower()
             with open("commands.txt", "a") as file:
                 file.write(url + ";" + command + "\n")
             self.ui.lineEdit.clear()
@@ -112,12 +113,28 @@ class MainWindow(QMainWindow):
         else:
             self.ui.label_4.setText("Не все поля были заполнены")
     
+    def getNewName(self):
+        newName = self.ui.editName.text()
+        if newName != "":
+            newName.lower()
+            self.ui.editName.clear()
+            self.Pirs.changeName(newName)
+    
+    def modePirs(self):
+        if self.Pirs.rc.flag:
+            self.Pirs.rc.flag = False
+            self.ui.label_6.setText("Дезактивирован")
+            self.ui.label_6.setStyleSheet("color: rgb(220, 20, 60)")
+        else:
+            self.Pirs.rc.flag = True
+            self.ui.label_6.setText("Активирован")
+            self.ui.label_6.setStyleSheet("color: rgb(0, 255, 0)")
+    
     def closeApp(self):
         self.threadPirs.exit()
         self.threadPirs.terminate()
-        self.threadPirs.wait(500)
+        self.threadPirs.wait(250)
         self.close()
-        self.Pirs.bye()
 
 # SPLASH SCREEN
 class SplashScreen(QMainWindow):
