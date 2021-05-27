@@ -1379,7 +1379,7 @@ background: transparent;
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">color: rgb(85, 170, 255);</string>
+                       <string notr="true"/>
                       </property>
                       <property name="text">
                        <string>P I R S</string>
@@ -1653,6 +1653,12 @@ QLineEdit:focus {
                           <verstretch>0</verstretch>
                          </sizepolicy>
                         </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>8</pointsize>
+                         </font>
+                        </property>
                         <property name="cursor">
                          <cursorShape>IBeamCursor</cursorShape>
                         </property>
@@ -1719,6 +1725,12 @@ QLineEdit:focus {
                           <horstretch>0</horstretch>
                           <verstretch>0</verstretch>
                          </sizepolicy>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>8</pointsize>
+                         </font>
                         </property>
                         <property name="styleSheet">
                          <string notr="true"/>
@@ -1838,10 +1850,10 @@ margin: 8 0 2 0;</string>
                          </font>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">color: rgb(85, 170, 255);</string>
+                         <string notr="true"/>
                         </property>
                         <property name="text">
-                         <string>Инструкция к пользованию (Псс, нажми на кнопку)</string>
+                         <string>Инструкция к пользованию (псс, нажми на кнопку)</string>
                         </property>
                        </widget>
                       </item>
@@ -1964,7 +1976,7 @@ margin: 8 0 2 0;</string>
                          </font>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">color: rgb(85, 170, 255);</string>
+                         <string notr="true"/>
                         </property>
                         <property name="text">
                          <string>Замена слова ативации </string>
@@ -1991,6 +2003,12 @@ margin: 8 0 2 0;</string>
                           <width>800</width>
                           <height>0</height>
                          </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>8</pointsize>
+                         </font>
                         </property>
                         <property name="styleSheet">
                          <string notr="true">QLineEdit {
