@@ -5,7 +5,7 @@ from os import system
 from random import choice
 from playsound import playsound
 from PySide2 import QtCore
-from recognizer import Recognizer
+from main.recognizer import Recognizer
 
 # Phrases
 phrases_for_executing = ["Doing.mp3", "Will_be_done.mp3", "How_say_sir.mp3"]

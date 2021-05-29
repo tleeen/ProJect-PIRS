@@ -748,7 +748,7 @@ QPushButton:pressed {
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgba(33, 37, 43, 150);
-padding: 1px</string>
+height: 23px;</string>
                </property>
                <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
@@ -825,6 +825,18 @@ padding: 1px</string>
                     <height>16777215</height>
                    </size>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {	
+	border: none;
+	background-color: transparent;
+}
+QPushButton:hover {
+	background-color: rgb(44, 49, 60)
+}
+QPushButton:pressed {	
+	background-color: rgb(85, 170, 255);
+}</string>
+                  </property>
                   <property name="frameShape">
                    <enum>QFrame::NoFrame</enum>
                   </property>
@@ -856,19 +868,10 @@ padding: 1px</string>
                       </sizepolicy>
                      </property>
                      <property name="toolTip">
-                      <string>Minimize</string>
+                      <string/>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QPushButton {	
-	border: none;
-	background-color: transparent;
-}
-QPushButton:hover {
-	background-color: rgb(44, 49, 60)
-}
-QPushButton:pressed {	
-	background-color: rgb(85, 170, 255);
-}</string>
+                      <string notr="true"/>
                      </property>
                      <property name="text">
                       <string/>
@@ -888,19 +891,10 @@ QPushButton:pressed {
                       </sizepolicy>
                      </property>
                      <property name="toolTip">
-                      <string>Maximize</string>
+                      <string/>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QPushButton {	
-	border: none;
-	background-color: transparent;
-}
-QPushButton:hover {
-	background-color: rgb(44, 49, 60)
-}
-QPushButton:pressed {	
-	background-color: rgb(85, 170, 255);
-}</string>
+                      <string notr="true"/>
                      </property>
                      <property name="text">
                       <string/>
@@ -920,18 +914,14 @@ QPushButton:pressed {
                       </sizepolicy>
                      </property>
                      <property name="toolTip">
-                      <string>Close</string>
+                      <string/>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QPushButton {	
-	border: none;
-	background-color: transparent;
-}
-QPushButton:hover {
-	background-color: rgb(44, 49, 60)
+                      <string notr="true">QPushButton:hover {
+	background-color: rgb(139, 0, 0)
 }
 QPushButton:pressed {	
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(139, 0, 0);
 }</string>
                      </property>
                      <property name="text">
@@ -1377,7 +1367,25 @@ QPushButton:hover {
 QPushButton:pressed {	
 	background-color: rgb(85, 170, 255);
 }
+
+QLineEdit {
+	width: 10px;
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(27, 29, 35);
+	padding-left: 5px;
+	margin: 0 60 0 60;
+}
+QLineEdit:hover {
+	border: 2px solid rgb(64, 71, 88);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(91, 101, 124);
+	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
+};
+
 background: transparent;
+
 </string>
                   </property>
                   <property name="currentIndex">
@@ -1509,24 +1517,20 @@ background: transparent;
                    </layout>
                   </widget>
                   <widget class="QWidget" name="page_user">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
                    <property name="styleSheet">
-                    <string notr="true">QLineEdit {
-	width: 10px;
-	background-color: rgb(27, 29, 35);
-	border-radius: 5px;
-	border: 2px solid rgb(27, 29, 35);
-	padding-left: 10px;
-	width: 740px;
-	margin-left: 60px;
-	margin-right: 60px;
-}
-QLineEdit:hover {
-	border: 2px solid rgb(64, 71, 88);
-}
-QLineEdit:focus {
-	border: 2px solid rgb(91, 101, 124);
-	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
-}</string>
+                    <string notr="true"/>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_6">
                     <item>
@@ -1612,6 +1616,18 @@ QLineEdit:focus {
                           <horstretch>0</horstretch>
                           <verstretch>0</verstretch>
                          </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>16777215</height>
+                         </size>
                         </property>
                         <property name="cursor">
                          <cursorShape>IBeamCursor</cursorShape>
@@ -1915,29 +1931,8 @@ margin: 8 0 2 0;</string>
                         </property>
                        </spacer>
                       </item>
-                      <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                       <widget class="QLineEdit" name="editName">
-                        <property name="minimumSize">
-                         <size>
-                          <width>800</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QLineEdit {
-	background-color: rgb(27, 29, 35);
-	border-radius: 5px;
-	border: 2px solid rgb(27, 29, 35);
-	padding-left: 10px;
-}
-QLineEdit:hover {
-	border: 2px solid rgb(64, 71, 88);
-}
-QLineEdit:focus {
-	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
-}</string>
-                        </property>
-                       </widget>
+                      <item>
+                       <widget class="QLineEdit" name="editName"/>
                       </item>
                       <item>
                        <spacer name="verticalSpacer_22">

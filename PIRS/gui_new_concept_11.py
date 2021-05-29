@@ -12,7 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import files_rc
+from main import files_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -207,7 +207,7 @@ class Ui_MainWindow(object):
         self.frame_top_btns.setObjectName(u"frame_top_btns")
         self.frame_top_btns.setMaximumSize(QSize(16777215, 30))
         self.frame_top_btns.setStyleSheet(u"background-color: rgba(33, 37, 43, 150);\n"
-"padding: 1px")
+"height: 23px;")
         self.frame_top_btns.setFrameShape(QFrame.NoFrame)
         self.frame_top_btns.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.frame_top_btns)
@@ -240,6 +240,16 @@ class Ui_MainWindow(object):
         self.frame_btns_right = QFrame(self.frame_top_btns)
         self.frame_btns_right.setObjectName(u"frame_btns_right")
         self.frame_btns_right.setMaximumSize(QSize(120, 16777215))
+        self.frame_btns_right.setStyleSheet(u"QPushButton {	\n"
+"	border: none;\n"
+"	background-color: transparent;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(44, 49, 60)\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(85, 170, 255);\n"
+"}")
         self.frame_btns_right.setFrameShape(QFrame.NoFrame)
         self.frame_btns_right.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_btns_right)
@@ -253,16 +263,6 @@ class Ui_MainWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.btn_minimize.sizePolicy().hasHeightForWidth())
         self.btn_minimize.setSizePolicy(sizePolicy2)
-        self.btn_minimize.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(44, 49, 60)\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
         icon = QIcon()
         icon.addFile(u":/16x16/icons/16x16/cil-window-minimize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_minimize.setIcon(icon)
@@ -273,16 +273,6 @@ class Ui_MainWindow(object):
         self.btn_maximize_restore.setObjectName(u"btn_maximize_restore")
         sizePolicy2.setHeightForWidth(self.btn_maximize_restore.sizePolicy().hasHeightForWidth())
         self.btn_maximize_restore.setSizePolicy(sizePolicy2)
-        self.btn_maximize_restore.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(44, 49, 60)\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
         icon1 = QIcon()
         icon1.addFile(u":/16x16/icons/16x16/cil-window-maximize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_maximize_restore.setIcon(icon1)
@@ -293,15 +283,11 @@ class Ui_MainWindow(object):
         self.btn_close.setObjectName(u"btn_close")
         sizePolicy2.setHeightForWidth(self.btn_close.sizePolicy().hasHeightForWidth())
         self.btn_close.setSizePolicy(sizePolicy2)
-        self.btn_close.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(44, 49, 60)\n"
+        self.btn_close.setStyleSheet(u"QPushButton:hover {\n"
+"	background-color: rgb(139, 0, 0)\n"
 "}\n"
 "QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
+"	background-color: rgb(139, 0, 0);\n"
 "}")
         icon2 = QIcon()
         icon2.addFile(u":/16x16/icons/16x16/cil-x.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -527,7 +513,26 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {	\n"
 "	background-color: rgb(85, 170, 255);\n"
 "}\n"
+"\n"
+"QLineEdit {\n"
+"	width: 10px;\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(27, 29, 35);\n"
+"	padding-left: 5px;\n"
+"	margin: 0 60 0 60;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}\n"
+"\n"
+"\n"
 "background: transparent;\n"
+"\n"
 "")
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
@@ -584,23 +589,8 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_home)
         self.page_user = QWidget()
         self.page_user.setObjectName(u"page_user")
-        self.page_user.setStyleSheet(u"QLineEdit {\n"
-"	width: 10px;\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(27, 29, 35);\n"
-"	padding-left: 10px;\n"
-"	width: 740px;\n"
-"	margin-left: 60px;\n"
-"	margin-right: 60px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
-"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
+        self.page_user.setMinimumSize(QSize(0, 0))
+        self.page_user.setMaximumSize(QSize(16777215, 16777215))
         self.verticalLayout_6 = QVBoxLayout(self.page_user)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalSpacer_4 = QSpacerItem(20, 80, QSizePolicy.Minimum, QSizePolicy.Expanding)
@@ -782,21 +772,8 @@ class Ui_MainWindow(object):
 
         self.editName = QLineEdit(self.page_settings)
         self.editName.setObjectName(u"editName")
-        self.editName.setMinimumSize(QSize(800, 0))
-        self.editName.setStyleSheet(u"QLineEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(27, 29, 35);\n"
-"	padding-left: 10px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
 
-        self.verticalLayout_13.addWidget(self.editName, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.verticalLayout_13.addWidget(self.editName)
 
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -891,15 +868,15 @@ class Ui_MainWindow(object):
         self.btn_toggle_menu.setText("")
         self.label_title_bar_top.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u043e\u0439 \u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 - PIRS", None))
 #if QT_CONFIG(tooltip)
-        self.btn_minimize.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
+        self.btn_minimize.setToolTip("")
 #endif // QT_CONFIG(tooltip)
         self.btn_minimize.setText("")
 #if QT_CONFIG(tooltip)
-        self.btn_maximize_restore.setToolTip(QCoreApplication.translate("MainWindow", u"Maximize", None))
+        self.btn_maximize_restore.setToolTip("")
 #endif // QT_CONFIG(tooltip)
         self.btn_maximize_restore.setText("")
 #if QT_CONFIG(tooltip)
-        self.btn_close.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
+        self.btn_close.setToolTip("")
 #endif // QT_CONFIG(tooltip)
         self.btn_close.setText("")
         self.label_top_info_1.setText("")
