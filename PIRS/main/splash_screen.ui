@@ -89,7 +89,7 @@
         <string notr="true">color: rgb(98, 114, 164);</string>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Запуск&lt;/span&gt; Модулей&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Запуск&lt;/span&gt; модулей&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -141,7 +141,7 @@ QProgressBar::chunk{
         <string notr="true">color: rgb(98, 114, 164);</string>
        </property>
        <property name="text">
-        <string>loading...</string>
+        <string>Загрузка...</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

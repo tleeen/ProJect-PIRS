@@ -12,7 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from main import files_rc
+import files_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -66,11 +66,6 @@ class Ui_MainWindow(object):
         brush10.setStyle(Qt.SolidPattern)
         palette.setBrush(QPalette.Active, QPalette.ToolTipBase, brush10)
         palette.setBrush(QPalette.Active, QPalette.ToolTipText, brush6)
-        brush11 = QBrush(QColor(210, 210, 210, 128))
-        brush11.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush11)
-#endif
         palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
         palette.setBrush(QPalette.Inactive, QPalette.Light, brush2)
@@ -89,11 +84,6 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Inactive, QPalette.AlternateBase, brush4)
         palette.setBrush(QPalette.Inactive, QPalette.ToolTipBase, brush10)
         palette.setBrush(QPalette.Inactive, QPalette.ToolTipText, brush6)
-        brush12 = QBrush(QColor(210, 210, 210, 128))
-        brush12.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush12)
-#endif
         palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush4)
         palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Light, brush2)
@@ -106,19 +96,14 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Disabled, QPalette.Base, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Window, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Shadow, brush7)
-        brush13 = QBrush(QColor(51, 153, 255, 255))
-        brush13.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Disabled, QPalette.Highlight, brush13)
+        brush11 = QBrush(QColor(51, 153, 255, 255))
+        brush11.setStyle(Qt.SolidPattern)
+        palette.setBrush(QPalette.Disabled, QPalette.Highlight, brush11)
         palette.setBrush(QPalette.Disabled, QPalette.Link, brush8)
         palette.setBrush(QPalette.Disabled, QPalette.LinkVisited, brush9)
         palette.setBrush(QPalette.Disabled, QPalette.AlternateBase, brush10)
         palette.setBrush(QPalette.Disabled, QPalette.ToolTipBase, brush10)
         palette.setBrush(QPalette.Disabled, QPalette.ToolTipText, brush6)
-        brush14 = QBrush(QColor(210, 210, 210, 128))
-        brush14.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush14)
-#endif
         MainWindow.setPalette(palette)
         font = QFont()
         font.setFamily(u"Segoe UI")
@@ -263,6 +248,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.btn_minimize.sizePolicy().hasHeightForWidth())
         self.btn_minimize.setSizePolicy(sizePolicy2)
+        self.btn_minimize.setStyleSheet(u"")
         icon = QIcon()
         icon.addFile(u":/16x16/icons/16x16/cil-window-minimize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_minimize.setIcon(icon)
@@ -273,6 +259,7 @@ class Ui_MainWindow(object):
         self.btn_maximize_restore.setObjectName(u"btn_maximize_restore")
         sizePolicy2.setHeightForWidth(self.btn_maximize_restore.sizePolicy().hasHeightForWidth())
         self.btn_maximize_restore.setSizePolicy(sizePolicy2)
+        self.btn_maximize_restore.setStyleSheet(u"")
         icon1 = QIcon()
         icon1.addFile(u":/16x16/icons/16x16/cil-window-maximize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_maximize_restore.setIcon(icon1)
@@ -497,6 +484,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setContentsMargins(5, 5, 5, 5)
         self.stackedWidget = QStackedWidget(self.frame_content)
         self.stackedWidget.setObjectName(u"stackedWidget")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.stackedWidget.sizePolicy().hasHeightForWidth())
+        self.stackedWidget.setSizePolicy(sizePolicy4)
         font4 = QFont()
         font4.setFamily(u"Segoe UI")
         font4.setPointSize(36)
@@ -528,8 +520,7 @@ class Ui_MainWindow(object):
 "QLineEdit:focus {\n"
 "	border: 2px solid rgb(91, 101, 124);\n"
 "	border-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}\n"
-"\n"
+"};\n"
 "\n"
 "background: transparent;\n"
 "\n"
@@ -563,7 +554,7 @@ class Ui_MainWindow(object):
         font6.setFamily(u"Segoe UI")
         font6.setPointSize(22)
         self.label_6.setFont(font6)
-        self.label_6.setStyleSheet(u"color: rgb(220, 20, 60);")
+        self.label_6.setStyleSheet(u"color: rgb(98, 114, 164);")
         self.label_6.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_10.addWidget(self.label_6)
@@ -591,6 +582,7 @@ class Ui_MainWindow(object):
         self.page_user.setObjectName(u"page_user")
         self.page_user.setMinimumSize(QSize(0, 0))
         self.page_user.setMaximumSize(QSize(16777215, 16777215))
+        self.page_user.setStyleSheet(u"")
         self.verticalLayout_6 = QVBoxLayout(self.page_user)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalSpacer_4 = QSpacerItem(20, 80, QSizePolicy.Minimum, QSizePolicy.Expanding)
@@ -636,6 +628,8 @@ class Ui_MainWindow(object):
         self.lineEdit.setEnabled(True)
         sizePolicy.setHeightForWidth(self.lineEdit.sizePolicy().hasHeightForWidth())
         self.lineEdit.setSizePolicy(sizePolicy)
+        self.lineEdit.setMinimumSize(QSize(0, 0))
+        self.lineEdit.setMaximumSize(QSize(16777215, 16777215))
         self.lineEdit.setCursor(QCursor(Qt.IBeamCursor))
         self.lineEdit.setLayoutDirection(Qt.LeftToRight)
         self.lineEdit.setStyleSheet(u"")
@@ -684,9 +678,81 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.pushButton, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.verticalSpacer_8 = QSpacerItem(20, 80, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.label_10 = QLabel(self.page_user)
+        self.label_10.setObjectName(u"label_10")
+        font9 = QFont()
+        font9.setFamily(u"Segoe UI")
+        font9.setPointSize(11)
+        font9.setBold(True)
+        font9.setWeight(75)
+        self.label_10.setFont(font9)
+        self.label_10.setStyleSheet(u"color: rgb(85, 170, 255);")
 
-        self.verticalLayout_6.addItem(self.verticalSpacer_8)
+        self.verticalLayout_6.addWidget(self.label_10)
+
+        self.verticalSpacer = QSpacerItem(20, 80, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer)
+
+        self.label_11 = QLabel(self.page_user)
+        self.label_11.setObjectName(u"label_11")
+        sizePolicy4.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy4)
+        self.label_11.setFont(font7)
+        self.label_11.setStyleSheet(u"color: rgb(85, 170, 255);")
+
+        self.verticalLayout_6.addWidget(self.label_11, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 60, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_2)
+
+        self.label_12 = QLabel(self.page_user)
+        self.label_12.setObjectName(u"label_12")
+        sizePolicy4.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
+        self.label_12.setSizePolicy(sizePolicy4)
+        self.label_12.setFont(font8)
+
+        self.verticalLayout_6.addWidget(self.label_12, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.lineEdit_3 = QLineEdit(self.page_user)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+
+        self.verticalLayout_6.addWidget(self.lineEdit_3)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 70, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer_3)
+
+        self.label_13 = QLabel(self.page_user)
+        self.label_13.setObjectName(u"label_13")
+        sizePolicy4.setHeightForWidth(self.label_13.sizePolicy().hasHeightForWidth())
+        self.label_13.setSizePolicy(sizePolicy4)
+        self.label_13.setFont(font8)
+
+        self.verticalLayout_6.addWidget(self.label_13, 0, Qt.AlignHCenter)
+
+        self.lineEdit_4 = QLineEdit(self.page_user)
+        self.lineEdit_4.setObjectName(u"lineEdit_4")
+
+        self.verticalLayout_6.addWidget(self.lineEdit_4)
+
+        self.label_14 = QLabel(self.page_user)
+        self.label_14.setObjectName(u"label_14")
+        font10 = QFont()
+        font10.setFamily(u"Segoe UI")
+        font10.setPointSize(11)
+        self.label_14.setFont(font10)
+
+        self.verticalLayout_6.addWidget(self.label_14)
+
+        self.pushButton_5 = QPushButton(self.page_user)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setMinimumSize(QSize(200, 60))
+        self.pushButton_5.setMaximumSize(QSize(200, 60))
+        self.pushButton_5.setFont(font)
+
+        self.verticalLayout_6.addWidget(self.pushButton_5, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.stackedWidget.addWidget(self.page_user)
         self.page_settings = QWidget()
@@ -697,13 +763,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_11.addItem(self.verticalSpacer_16)
 
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+
+        self.verticalLayout_11.addLayout(self.horizontalLayout_9)
+
         self.verticalLayout_12 = QVBoxLayout()
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.label_7 = QLabel(self.page_settings)
         self.label_7.setObjectName(u"label_7")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
         self.label_7.setSizePolicy(sizePolicy4)
         self.label_7.setFont(font7)
@@ -722,10 +790,10 @@ class Ui_MainWindow(object):
         self.pushButton_3.setSizePolicy(sizePolicy)
         self.pushButton_3.setMinimumSize(QSize(400, 100))
         self.pushButton_3.setMaximumSize(QSize(500, 200))
-        font9 = QFont()
-        font9.setFamily(u"Segoe UI")
-        font9.setPointSize(20)
-        self.pushButton_3.setFont(font9)
+        font11 = QFont()
+        font11.setFamily(u"Segoe UI")
+        font11.setPointSize(20)
+        self.pushButton_3.setFont(font11)
         self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.verticalLayout_12.addWidget(self.pushButton_3, 0, Qt.AlignHCenter|Qt.AlignVCenter)
@@ -741,12 +809,7 @@ class Ui_MainWindow(object):
         self.label_8.setObjectName(u"label_8")
         sizePolicy4.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
         self.label_8.setSizePolicy(sizePolicy4)
-        font10 = QFont()
-        font10.setFamily(u"Segoe UI")
-        font10.setPointSize(11)
-        font10.setBold(True)
-        font10.setWeight(75)
-        self.label_8.setFont(font10)
+        self.label_8.setFont(font9)
         self.label_8.setStyleSheet(u"color: rgb(85, 170, 255);")
 
         self.verticalLayout_11.addWidget(self.label_8)
@@ -857,7 +920,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -887,11 +950,17 @@ class Ui_MainWindow(object):
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"P I R S", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0435\u0437\u0430\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0410\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u044f", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f:", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u043e\u0442\u043a\u0440\u044b\u0442\u0438\u044f \u0441\u0430\u0439\u0442\u0430 \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f:", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0441\u044b\u043b\u043a\u0430 \u043d\u0430 \u0441\u0430\u0439\u0442", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u0430\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u0430", None))
         self.label_4.setText("")
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"OK", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u043e\u0442\u043a\u0440\u044b\u0442\u0438\u044f \u043f\u0430\u043f\u043a\u0438 \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043b\u043d\u044b\u0439 \u043f\u0443\u0442\u044c \u043a \u043f\u0430\u043f\u043a\u0435", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u0430\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u0430", None))
+        self.label_14.setText("")
+        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"OK", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f \u043a \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044e (\u041f\u0441\u0441, \u043d\u0430\u0436\u043c\u0438 \u043d\u0430 \u043a\u043d\u043e\u043f\u043a\u0443)", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u0418 \u043d \u0441 \u0442 \u0440 \u0443 \u043a \u0446 \u0438 \u044f", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________", None))
