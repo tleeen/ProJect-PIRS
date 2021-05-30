@@ -1,5 +1,5 @@
 from Assistant import Assistant
-from gui_new_concept_11 import *
+from gui_new_concept_12 import *
 from main.ui_functions import *
 from main.splash_screen import Ui_SplashScreen
 import sys
