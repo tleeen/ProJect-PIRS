@@ -188,15 +188,6 @@
        </color>
       </brush>
      </colorrole>
-     <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
-        <red>210</red>
-        <green>210</green>
-        <blue>210</blue>
-       </color>
-      </brush>
-     </colorrole>
     </active>
     <inactive>
      <colorrole role="WindowText">
@@ -361,15 +352,6 @@
        </color>
       </brush>
      </colorrole>
-     <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
-        <red>210</red>
-        <green>210</green>
-        <blue>210</blue>
-       </color>
-      </brush>
-     </colorrole>
     </inactive>
     <disabled>
      <colorrole role="WindowText">
@@ -528,15 +510,6 @@
      <colorrole role="ToolTipText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>210</red>
-        <green>210</green>
-        <blue>210</blue>
-       </color>
-      </brush>
-     </colorrole>
-     <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
         <red>210</red>
         <green>210</green>
         <blue>210</blue>
@@ -1399,7 +1372,7 @@ background: transparent;
 </string>
                   </property>
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>3</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1904,6 +1877,148 @@ margin: 8 0 2 0;</string>
                        </spacer>
                       </item>
                       <item>
+                       <layout class="QVBoxLayout" name="verticalLayout_12">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <spacer name="verticalSpacer_12">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                         <widget class="QLabel" name="instruction">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Segoe UI</family>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: rgb(98, 114, 164);
+margin-bottom: 15px;</string>
+                          </property>
+                          <property name="text">
+                           <string>Инструкция</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                         <widget class="QPushButton" name="pushButton_3">
+                          <property name="enabled">
+                           <bool>true</bool>
+                          </property>
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>60</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>60</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Segoe UI</family>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>icons/24x24/cil-voice-over-record.png</normaloff>icons/24x24/cil-voice-over-record.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>24</width>
+                            <height>24</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_15">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::Expanding</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="Line" name="line">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_4">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
                        <layout class="QVBoxLayout" name="verticalLayout_13">
                         <property name="spacing">
                          <number>0</number>
@@ -2048,51 +2163,42 @@ margin: 8 0 2 0;</string>
                        </layout>
                       </item>
                       <item>
-                       <spacer name="horizontalSpacer">
+                       <spacer name="horizontalSpacer_3">
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
-                        <property name="sizeType">
-                         <enum>QSizePolicy::Expanding</enum>
-                        </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>60</width>
+                          <width>40</width>
                           <height>20</height>
                          </size>
                         </property>
                        </spacer>
                       </item>
                       <item>
-                       <widget class="Line" name="line">
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
+                       <widget class="Line" name="line_5">
                         <property name="orientation">
                          <enum>Qt::Vertical</enum>
                         </property>
                        </widget>
                       </item>
                       <item>
-                       <spacer name="horizontalSpacer_4">
+                       <spacer name="horizontalSpacer_6">
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>30</width>
-                          <height>40</height>
+                          <width>40</width>
+                          <height>20</height>
                          </size>
                         </property>
                        </spacer>
                       </item>
                       <item>
-                       <layout class="QVBoxLayout" name="verticalLayout_12">
-                        <property name="spacing">
-                         <number>0</number>
-                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_7">
                         <item>
-                         <spacer name="verticalSpacer_12">
+                         <spacer name="verticalSpacer_18">
                           <property name="orientation">
                            <enum>Qt::Vertical</enum>
                           </property>
@@ -2105,13 +2211,7 @@ margin: 8 0 2 0;</string>
                          </spacer>
                         </item>
                         <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                         <widget class="QLabel" name="instruction">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
+                         <widget class="QLabel" name="label_2">
                           <property name="font">
                            <font>
                             <family>Segoe UI</family>
@@ -2119,11 +2219,39 @@ margin: 8 0 2 0;</string>
                            </font>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">color: rgb(98, 114, 164);
-margin-bottom: 15px;</string>
+                           <string notr="true">color: rgb(98, 114, 164);</string>
                           </property>
                           <property name="text">
-                           <string>Инструкция к пользованию</string>
+                           <string>Список команд</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="pushButton_6">
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>60</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>60</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>icons/24x24/cil-comment-bubble.png</normaloff>icons/24x24/cil-comment-bubble.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>24</width>
+                            <height>24</height>
+                           </size>
                           </property>
                          </widget>
                         </item>
@@ -2140,83 +2268,10 @@ margin-bottom: 15px;</string>
                           </property>
                          </spacer>
                         </item>
-                        <item>
-                         <spacer name="verticalSpacer_18">
-                          <property name="orientation">
-                           <enum>Qt::Vertical</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>20</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                         <widget class="QPushButton" name="pushButton_3">
-                          <property name="enabled">
-                           <bool>true</bool>
-                          </property>
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="minimumSize">
-                           <size>
-                            <width>200</width>
-                            <height>60</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>200</width>
-                            <height>60</height>
-                           </size>
-                          </property>
-                          <property name="font">
-                           <font>
-                            <family>Segoe UI</family>
-                            <pointsize>14</pointsize>
-                           </font>
-                          </property>
-                          <property name="cursor">
-                           <cursorShape>PointingHandCursor</cursorShape>
-                          </property>
-                          <property name="text">
-                           <string/>
-                          </property>
-                          <property name="icon">
-                           <iconset>
-                            <normaloff>icons/24x24/cil-voice-over-record.png</normaloff>icons/24x24/cil-voice-over-record.png</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>24</width>
-                            <height>24</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <spacer name="verticalSpacer_15">
-                          <property name="orientation">
-                           <enum>Qt::Vertical</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>20</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
                        </layout>
                       </item>
                       <item>
-                       <spacer name="horizontalSpacer_3">
+                       <spacer name="horizontalSpacer_5">
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
@@ -2276,16 +2331,6 @@ margin-bottom: 15px;</string>
                          </widget>
                         </item>
                        </layout>
-                      </item>
-                      <item>
-                       <widget class="Line" name="line_3">
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="orientation">
-                         <enum>Qt::Vertical</enum>
-                        </property>
-                       </widget>
                       </item>
                       <item>
                        <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -2363,6 +2408,70 @@ QSlider::handle:horizontal:pressed {    background-color: rgb(65, 130, 195);}</s
                          </spacer>
                         </item>
                        </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="page_phrases">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_8">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_13">
+                      <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                       <widget class="QLabel" name="label_3">
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QScrollBar" name="verticalScrollBar">
+                        <property name="styleSheet">
+                         <string notr="true"> QScrollBar:vertical {
+	border: none;
+    background: rgb(52, 59, 72);
+    width: 14px;
+    margin: 21px 0 21px 0;
+	border-radius: 0px;
+}
+QScrollBar::handle:vertical {	
+	background: rgb(85, 170, 255);
+   min-height: 25px;
+	border-radius: 7px
+ }
+ QScrollBar::add-line:vertical {
+     border: none;
+    background: rgb(55, 63, 77);
+   height: 20px;
+	border-bottom-left-radius: 7px;
+   border-bottom-right-radius: 7px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+}
+ QScrollBar::sub-line:vertical {
+	border: none;
+    background: rgb(55, 63
+                        , 77);
+     height: 20px;
+	border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    background: none;
+}
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+                        </property>
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                       </widget>
                       </item>
                      </layout>
                     </item>

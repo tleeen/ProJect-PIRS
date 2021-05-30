@@ -72,6 +72,9 @@ class MainWindow(QMainWindow):
         # PAGE 3
         self.ui.btn_settings.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings))
 
+        # PAGE 4
+        self.ui.pushButton_6.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_phrases))
+
         # MOUSE CLICK HANDING
         def mouseClick(event):
             if event.buttons() == Qt.LeftButton:
