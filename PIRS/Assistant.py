@@ -199,13 +199,13 @@ class Assistant(QtCore.QObject):
     def greeting():
         current_time = datetime.now()
         if (current_time.hour >= 6) and (current_time.hour < 12):
-            playsound(r"audio/Good_morning.mp3")
+            playsound(r"audio/Good_morning.mp3", block=False)
         elif (current_time.hour >= 12) and (current_time.hour < 18):
-            playsound(r"audio/Good_evening.mp3")
+            playsound(r"audio/Good_evening.mp3", block=False)
         elif (current_time.hour >= 18) and (current_time.hour < 23):
-            playsound(r"audio/Good_afternoon.mp3")
+            playsound(r"audio/Good_afternoon.mp3", block=False)
         else:
-            playsound(r"audio/Greetings_at_night.mp3")
+            playsound(r"audio/Greetings_at_night.mp3", block==False)
     
     def changeName(self, name):
         self.rc.hot_word = name

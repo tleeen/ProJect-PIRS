@@ -1,8 +1,10 @@
 from Assistant import Assistant
-from gui_new_concept_12 import *
+from gui_new_concept_13 import *
 from main.ui_functions import *
 from main.splash_screen import Ui_SplashScreen
+from pycaw.pycaw import AudioUtilities
 import sys
+from main import files_rc
 
 ## ==> GLOBALS
 counter = 0
@@ -84,8 +86,18 @@ class MainWindow(QMainWindow):
         self.ui.frame_label_top_btns.mousePressEvent = mouseClick
         self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
 
-        self.ui.pushButton.clicked.connect(self.getCommand)
+        # GET COMMANDS
+        self.ui.pushButton.clicked.connect(self.getCommandSite)
         self.ui.pushButton_4.clicked.connect(self.getNewName)
+        self.ui.pushButton_5.clicked.connect(self.getCommandFolder)
+
+        # CHANGE VOLUME
+        self.ui.horizontalSlider.setMinimum(0)
+        self.ui.horizontalSlider.setMaximum(100)
+        self.ui.progressBar.setValue(0)
+        self.ui.horizontalSlider.valueChanged.connect(self.valueSpeaker)
+        self.ui.horizontalSlider.valueChanged[int].connect(self.changeVolume)
+        
 
 
         ## ==> LOAD DEFINITIONS
@@ -99,11 +111,11 @@ class MainWindow(QMainWindow):
         ## ==> END ##   
 
     # USER COMANDS
-    def getCommand(self):
+    def getCommandSite(self):
         url = self.ui.lineEdit.text()
         command = self.ui.lineEdit_2.text()
         if command != "" and url != "":
-            self.ui.label_4.setText("")
+            self.ui.warning_1.setText("")
             url.lower()
             command.lower()
             with open("commands.txt", "a") as file:
@@ -111,7 +123,21 @@ class MainWindow(QMainWindow):
             self.ui.lineEdit.clear()
             self.ui.lineEdit_2.clear()
         else:
-            self.ui.label_4.setText("Не все поля были заполнены")
+            self.ui.warning_1.setText("Не все поля были заполнены")
+
+    def getCommandFolder(self):
+        url = self.ui.lineEdit_3.text()
+        command = self.ui.lineEdit_4.text()
+        if command != "" and url != "":
+            self.ui.warning_2.setText("")
+            url.lower()
+            command.lower()
+            with open("commands.txt", "a") as file:
+                file.write(url + ";" + command + "\n")
+            self.ui.lineEdit_3.clear()
+            self.ui.lineEdit_4.clear()
+        else:
+            self.ui.warning_2.setText("Не все поля были заполнены")
     
     def getNewName(self):
         newName = self.ui.editName.text()
@@ -119,16 +145,26 @@ class MainWindow(QMainWindow):
             newName.lower()
             self.ui.editName.clear()
             self.Pirs.changeName(newName)
+
+    def changeVolume(self, value):
+        sessions = AudioUtilities.GetAllSessions()
+        for session in sessions:
+            volume = session.SimpleAudioVolume
+            if session.Process and session.Process.name() == "python.exe":
+                volume.SetMasterVolume(value * 0.01, None)
+    
+    def valueSpeaker(self):
+        self.ui.progressBar.setValue(self.ui.horizontalSlider.value())
     
     def modePirs(self):
         if self.Pirs.rc.flag:
             self.Pirs.rc.flag = False
             self.ui.label_6.setText("Дезактивирован")
-            self.ui.label_6.setStyleSheet("color: rgb(220, 20, 60)")
+            self.ui.label_6.setStyleSheet("color: rgb(98, 114, 164);")
         else:
             self.Pirs.rc.flag = True
             self.ui.label_6.setText("Активирован")
-            self.ui.label_6.setStyleSheet("color: rgb(0, 255, 0)")
+            self.ui.label_6.setStyleSheet("color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));")
     
     def closeApp(self):
         self.threadPirs.exit()
@@ -196,6 +232,7 @@ class SplashScreen(QMainWindow):
 
 
 if __name__ == "__main__":
+    Assistant.greeting()
     app = QApplication(sys.argv)
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')

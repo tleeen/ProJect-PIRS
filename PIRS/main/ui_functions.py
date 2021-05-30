@@ -41,7 +41,7 @@ class UIFunctions(MainWindow):
             self.showNormal()
             self.resize(self.width() + 1, self.height() + 1)
             self.ui.horizontalLayout.setContentsMargins(10, 10, 10, 10)
-            self.ui.btn_maximize_restore.setToolTip("Maximize")
+            self.ui.btn_maximize_restore.setToolTip("Развернуть")
             self.ui.btn_maximize_restore.setIcon(QtGui.QIcon(u":/16x16/icons/16x16/cil-window-maximize.png"))
             self.ui.frame_size_grip.show()
 
