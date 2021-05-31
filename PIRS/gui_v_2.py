@@ -74,6 +74,7 @@ class MainWindow(QMainWindow):
 
         # PAGE 4
         self.ui.pushButton_6.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_phrases))
+        self.ui.pushButton_6.clicked.connect(self.feedLabel)
 
         # MOUSE CLICK HANDING
         def mouseClick(event):
@@ -95,9 +96,9 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_5.clicked.connect(self.getCommandFolder)
 
         # CHANGE VOLUME
-        self.ui.horizontalSlider.setMinimum(0)
         self.ui.horizontalSlider.setMaximum(100)
-        self.ui.progressBar.setValue(0)
+        self.ui.horizontalSlider.setValue(100)
+        self.ui.progressBar.setValue(100)
         self.ui.horizontalSlider.valueChanged.connect(self.valueSpeaker)
         self.ui.horizontalSlider.valueChanged[int].connect(self.changeVolume)
         
@@ -159,6 +160,22 @@ class MainWindow(QMainWindow):
     def valueSpeaker(self):
         self.ui.progressBar.setValue(self.ui.horizontalSlider.value())
     
+    def feedLabel(self):
+        self.Pirs.feedDict(self.Pirs.tasks)
+        i = 1
+        text = ""
+        for key, value in self.Pirs.tasks.items():
+            text += str(i) + ". "
+            for k in key:
+                text += k + ", "
+            text = text[:-2]
+            if isinstance(value, str):
+                text += ": " + value
+            text += "\n"
+            i+=1
+        self.ui.label_4.setText(text)
+
+    
     def modePirs(self):
         if self.Pirs.rc.flag:
             self.Pirs.rc.flag = False
@@ -174,6 +191,7 @@ class MainWindow(QMainWindow):
         self.threadPirs.terminate()
         self.threadPirs.wait(250)
         self.close()
+        self.Pirs.bye()
 
 # SPLASH SCREEN
 class SplashScreen(QMainWindow):

@@ -66,6 +66,11 @@ class Ui_MainWindow(object):
         brush10.setStyle(Qt.SolidPattern)
         palette.setBrush(QPalette.Active, QPalette.ToolTipBase, brush10)
         palette.setBrush(QPalette.Active, QPalette.ToolTipText, brush6)
+        brush11 = QBrush(QColor(210, 210, 210, 128))
+        brush11.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush11)
+#endif
         palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
         palette.setBrush(QPalette.Inactive, QPalette.Light, brush2)
@@ -84,6 +89,11 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Inactive, QPalette.AlternateBase, brush4)
         palette.setBrush(QPalette.Inactive, QPalette.ToolTipBase, brush10)
         palette.setBrush(QPalette.Inactive, QPalette.ToolTipText, brush6)
+        brush12 = QBrush(QColor(210, 210, 210, 128))
+        brush12.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush12)
+#endif
         palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush4)
         palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Light, brush2)
@@ -96,14 +106,19 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Disabled, QPalette.Base, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Window, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Shadow, brush7)
-        brush11 = QBrush(QColor(51, 153, 255, 255))
-        brush11.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Disabled, QPalette.Highlight, brush11)
+        brush13 = QBrush(QColor(51, 153, 255, 255))
+        brush13.setStyle(Qt.SolidPattern)
+        palette.setBrush(QPalette.Disabled, QPalette.Highlight, brush13)
         palette.setBrush(QPalette.Disabled, QPalette.Link, brush8)
         palette.setBrush(QPalette.Disabled, QPalette.LinkVisited, brush9)
         palette.setBrush(QPalette.Disabled, QPalette.AlternateBase, brush10)
         palette.setBrush(QPalette.Disabled, QPalette.ToolTipBase, brush10)
         palette.setBrush(QPalette.Disabled, QPalette.ToolTipText, brush6)
+        brush14 = QBrush(QColor(210, 210, 210, 128))
+        brush14.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush14)
+#endif
         MainWindow.setPalette(palette)
         font = QFont()
         font.setFamily(u"Segoe UI")
@@ -648,8 +663,12 @@ class Ui_MainWindow(object):
         self.warning_1 = QLabel(self.page_user)
         self.warning_1.setObjectName(u"warning_1")
         self.warning_1.setMinimumSize(QSize(0, 25))
-        self.warning_1.setFont(font)
-        self.warning_1.setStyleSheet(u"color:red;\n"
+        font10 = QFont()
+        font10.setFamily(u"Segoe UI")
+        font10.setPointSize(11)
+        self.warning_1.setFont(font10)
+        self.warning_1.setStyleSheet(u"font-size: 11pt;\n"
+"color:red;\n"
 "margin: 8 0 2 0;")
         self.warning_1.setAlignment(Qt.AlignCenter)
 
@@ -685,10 +704,10 @@ class Ui_MainWindow(object):
         self.folder_title.setObjectName(u"folder_title")
         sizePolicy4.setHeightForWidth(self.folder_title.sizePolicy().hasHeightForWidth())
         self.folder_title.setSizePolicy(sizePolicy4)
-        font10 = QFont()
-        font10.setFamily(u"Segoe UI")
-        font10.setPointSize(16)
-        self.folder_title.setFont(font10)
+        font11 = QFont()
+        font11.setFamily(u"Segoe UI")
+        font11.setPointSize(16)
+        self.folder_title.setFont(font11)
         self.folder_title.setStyleSheet(u"color: rgb(85, 170, 255);")
 
         self.verticalLayout_6.addWidget(self.folder_title, 0, Qt.AlignHCenter|Qt.AlignVCenter)
@@ -701,13 +720,13 @@ class Ui_MainWindow(object):
         self.folder_link.setObjectName(u"folder_link")
         sizePolicy4.setHeightForWidth(self.folder_link.sizePolicy().hasHeightForWidth())
         self.folder_link.setSizePolicy(sizePolicy4)
-        font11 = QFont()
-        font11.setFamily(u"UI")
-        font11.setPointSize(12)
-        font11.setBold(False)
-        font11.setItalic(False)
-        font11.setWeight(50)
-        self.folder_link.setFont(font11)
+        font12 = QFont()
+        font12.setFamily(u"UI")
+        font12.setPointSize(12)
+        font12.setBold(False)
+        font12.setItalic(False)
+        font12.setWeight(50)
+        self.folder_link.setFont(font12)
 
         self.verticalLayout_6.addWidget(self.folder_link, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
@@ -724,10 +743,10 @@ class Ui_MainWindow(object):
         self.command_link_2.setObjectName(u"command_link_2")
         sizePolicy4.setHeightForWidth(self.command_link_2.sizePolicy().hasHeightForWidth())
         self.command_link_2.setSizePolicy(sizePolicy4)
-        font12 = QFont()
-        font12.setFamily(u"Segoe UI")
-        font12.setPointSize(12)
-        self.command_link_2.setFont(font12)
+        font13 = QFont()
+        font13.setFamily(u"Segoe UI")
+        font13.setPointSize(12)
+        self.command_link_2.setFont(font13)
 
         self.verticalLayout_6.addWidget(self.command_link_2, 0, Qt.AlignHCenter)
 
@@ -739,11 +758,9 @@ class Ui_MainWindow(object):
         self.warning_2 = QLabel(self.page_user)
         self.warning_2.setObjectName(u"warning_2")
         self.warning_2.setMinimumSize(QSize(0, 25))
-        font13 = QFont()
-        font13.setFamily(u"Segoe UI")
-        font13.setPointSize(11)
-        self.warning_2.setFont(font13)
-        self.warning_2.setStyleSheet(u"color:red;\n"
+        self.warning_2.setFont(font10)
+        self.warning_2.setStyleSheet(u"font-size: 11pt;\n"
+"color:red;\n"
 "margin: 8 0 2 0;")
         self.warning_2.setAlignment(Qt.AlignCenter)
 
@@ -1020,19 +1037,11 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_settings)
         self.page_phrases = QWidget()
         self.page_phrases.setObjectName(u"page_phrases")
-        self.page_phrases.setStyleSheet(u"")
-        self.verticalLayout_8 = QVBoxLayout(self.page_phrases)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.horizontalLayout_13 = QHBoxLayout()
-        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.label_3 = QLabel(self.page_phrases)
-        self.label_3.setObjectName(u"label_3")
-
-        self.horizontalLayout_13.addWidget(self.label_3, 0, Qt.AlignHCenter|Qt.AlignVCenter)
-
-        self.verticalScrollBar = QScrollBar(self.page_phrases)
-        self.verticalScrollBar.setObjectName(u"verticalScrollBar")
-        self.verticalScrollBar.setStyleSheet(u" QScrollBar:vertical {\n"
+        self.page_phrases.setStyleSheet(u"QLabel {\n"
+"	font-size: 16pt;\n"
+"}\n"
+"\n"
+" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
 "    width: 14px;\n"
@@ -1041,38 +1050,65 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::handle:vertical {	\n"
 "	background: rgb(85, 170, 255);\n"
-"   min-height: 25px;\n"
-"	border-radius: 7px\n"
+"    min-height: 25px;\n"
+"    border-radius: 7px\n"
 " }\n"
 " QScrollBar::add-line:vertical {\n"
-"     border: none;\n"
+"    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
-"   height: 20px;\n"
-"	border-bottom-left-radius: 7px;\n"
-"   border-bottom-right-radius: 7px;\n"
-"     subcontrol-position: bottom;\n"
-"     subcontrol-origin: margin;\n"
+"    height: 20px;\n"
+"    border-bottom-left-radius: 7px;\n"
+"    border-bottom-right-radius: 7px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
 "}\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63\n"
-"                        , 77);\n"
-"     height: 20px;\n"
+"    background: rgb(55, 63, 77);\n"
+"    height: 20px;\n"
 "	border-top-left-radius: 7px;\n"
 "    border-top-right-radius: 7px;\n"
 "    subcontrol-position: top;\n"
-"     subcontrol-origin: margin;\n"
+"    subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
+"    background: rgb(0, 0, 0);\n"
 "}\n"
-" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical"
-                        " {\n"
+" QScrollBar::add-page:vertical, "
+                        "QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.verticalScrollBar.setOrientation(Qt.Vertical)
+        self.verticalLayout_8 = QVBoxLayout(self.page_phrases)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.horizontalLayout_13 = QHBoxLayout()
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.scrollArea = QScrollArea(self.page_phrases)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setStyleSheet(u"")
+        self.scrollArea.setFrameShape(QFrame.NoFrame)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 880, 609))
+        sizePolicy1.setHeightForWidth(self.scrollAreaWidgetContents.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents.setSizePolicy(sizePolicy1)
+        self.verticalLayout_14 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.label_4 = QLabel(self.scrollAreaWidgetContents)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
+        self.label_4.setSizePolicy(sizePolicy1)
+        font15 = QFont()
+        font15.setPointSize(16)
+        self.label_4.setFont(font15)
+        self.label_4.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
-        self.horizontalLayout_13.addWidget(self.verticalScrollBar)
+        self.verticalLayout_14.addWidget(self.label_4)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.horizontalLayout_13.addWidget(self.scrollArea)
 
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_13)
@@ -1110,6 +1146,9 @@ class Ui_MainWindow(object):
 
         self.frame_size_grip = QFrame(self.frame_grip)
         self.frame_size_grip.setObjectName(u"frame_size_grip")
+        sizePolicy3.setHeightForWidth(self.frame_size_grip.sizePolicy().hasHeightForWidth())
+        self.frame_size_grip.setSizePolicy(sizePolicy3)
+        self.frame_size_grip.setMinimumSize(QSize(20, 20))
         self.frame_size_grip.setMaximumSize(QSize(20, 20))
         self.frame_size_grip.setStyleSheet(u"QSizeGrip {\n"
 "	background-image: url(:/16x16/icons/16x16/cil-size-grip.png);\n"
@@ -1121,6 +1160,8 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.frame_size_grip)
 
+        self.frame_label_bottom.raise_()
+        self.frame_size_grip.raise_()
 
         self.verticalLayout_4.addWidget(self.frame_grip)
 
@@ -1137,7 +1178,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1184,6 +1225,6 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a \u043a\u043e\u043c\u0430\u043d\u0434", None))
         self.pushButton_6.setText("")
         self.volume.setText(QCoreApplication.translate("MainWindow", u"\u0413\u0440\u043e\u043c\u043a\u043e\u0441\u0442\u044c \u0434\u0438\u043d\u0430\u043c\u0438\u043a\u043e\u0432", None))
-        self.label_3.setText("")
+        self.label_4.setText("")
     # retranslateUi
 
