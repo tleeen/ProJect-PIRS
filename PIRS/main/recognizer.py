@@ -89,5 +89,5 @@ class Recognizer():
                     text = json.loads(self.rec.Result())
                     task = text['text']
                     if self.hot_word in task:
-                        playsound("audio/Listen_to_you.mp3")
+                        playsound("audio/listen_to_you.mp3")
                         return True

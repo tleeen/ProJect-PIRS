@@ -1399,7 +1399,7 @@ background: transparent;
 </string>
                   </property>
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1481,7 +1481,7 @@ background: transparent;
                      </spacer>
                     </item>
                     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                     <widget class="QPushButton" name="pushButton_2">
+                     <widget class="QPushButton" name="start_btn">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -1663,7 +1663,7 @@ margin: 8 0 2 0;</string>
                      </widget>
                     </item>
                     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                     <widget class="QPushButton" name="pushButton">
+                     <widget class="QPushButton" name="ok_btn">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -1849,7 +1849,7 @@ margin: 8 0 2 0;</string>
                      </widget>
                     </item>
                     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                     <widget class="QPushButton" name="pushButton_5">
+                     <widget class="QPushButton" name="ok_btn2">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -1947,7 +1947,7 @@ margin-bottom: 15px;</string>
                          </widget>
                         </item>
                         <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                         <widget class="QPushButton" name="pushButton_3">
+                         <widget class="QPushButton" name="manual_btn">
                           <property name="enabled">
                            <bool>true</bool>
                           </property>
@@ -2133,7 +2133,7 @@ margin-bottom: 15px;</string>
                          </spacer>
                         </item>
                         <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                         <widget class="QPushButton" name="pushButton_4">
+                         <widget class="QPushButton" name="ok_btn3">
                           <property name="sizePolicy">
                            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                             <horstretch>0</horstretch>
@@ -2256,7 +2256,7 @@ margin-bottom: 15px;</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QPushButton" name="pushButton_6">
+                         <widget class="QPushButton" name="listCommands">
                           <property name="minimumSize">
                            <size>
                             <width>200</width>
@@ -2504,8 +2504,8 @@ QScrollBar::handle:vertical {
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>880</width>
-                           <height>609</height>
+                           <width>86</width>
+                           <height>43</height>
                           </rect>
                          </property>
                          <property name="sizePolicy">
@@ -2660,8 +2660,6 @@ QScrollBar::handle:vertical {
                  </widget>
                 </item>
                </layout>
-               <zorder>frame_label_bottom</zorder>
-               <zorder>frame_size_grip</zorder>
               </widget>
              </item>
             </layout>

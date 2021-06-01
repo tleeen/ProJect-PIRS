@@ -582,19 +582,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addItem(self.verticalSpacer_13)
 
-        self.pushButton_2 = QPushButton(self.page_home)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(200, 200))
-        self.pushButton_2.setMaximumSize(QSize(200, 200))
-        self.pushButton_2.setFont(font4)
-        self.pushButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_2.setStyleSheet(u"border-radius: 100px")
+        self.start_btn = QPushButton(self.page_home)
+        self.start_btn.setObjectName(u"start_btn")
+        self.start_btn.setMinimumSize(QSize(200, 200))
+        self.start_btn.setMaximumSize(QSize(200, 200))
+        self.start_btn.setFont(font4)
+        self.start_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.start_btn.setStyleSheet(u"border-radius: 100px")
         icon3 = QIcon()
         icon3.addFile(u"icons/24x24/cil-power-standby.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_2.setIcon(icon3)
-        self.pushButton_2.setIconSize(QSize(24, 24))
+        self.start_btn.setIcon(icon3)
+        self.start_btn.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_10.addWidget(self.pushButton_2, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.verticalLayout_10.addWidget(self.start_btn, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.verticalSpacer_7 = QSpacerItem(20, 120, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -674,19 +674,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.warning_1)
 
-        self.pushButton = QPushButton(self.page_user)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(200, 60))
-        self.pushButton.setMaximumSize(QSize(200, 60))
-        self.pushButton.setFont(font)
-        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton.setStyleSheet(u"")
+        self.ok_btn = QPushButton(self.page_user)
+        self.ok_btn.setObjectName(u"ok_btn")
+        self.ok_btn.setMinimumSize(QSize(200, 60))
+        self.ok_btn.setMaximumSize(QSize(200, 60))
+        self.ok_btn.setFont(font)
+        self.ok_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.ok_btn.setStyleSheet(u"")
         icon4 = QIcon()
         icon4.addFile(u"icons/24x24/cil-check-alt.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon4)
-        self.pushButton.setIconSize(QSize(24, 24))
+        self.ok_btn.setIcon(icon4)
+        self.ok_btn.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_6.addWidget(self.pushButton, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.verticalLayout_6.addWidget(self.ok_btn, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.verticalSpacer = QSpacerItem(20, 80, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -766,15 +766,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.warning_2, 0, Qt.AlignVCenter)
 
-        self.pushButton_5 = QPushButton(self.page_user)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setMinimumSize(QSize(200, 60))
-        self.pushButton_5.setMaximumSize(QSize(200, 60))
-        self.pushButton_5.setFont(font)
-        self.pushButton_5.setIcon(icon4)
-        self.pushButton_5.setIconSize(QSize(24, 24))
+        self.ok_btn2 = QPushButton(self.page_user)
+        self.ok_btn2.setObjectName(u"ok_btn2")
+        self.ok_btn2.setMinimumSize(QSize(200, 60))
+        self.ok_btn2.setMaximumSize(QSize(200, 60))
+        self.ok_btn2.setFont(font)
+        self.ok_btn2.setIcon(icon4)
+        self.ok_btn2.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_6.addWidget(self.pushButton_5, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.verticalLayout_6.addWidget(self.ok_btn2, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.stackedWidget.addWidget(self.page_user)
         self.page_settings = QWidget()
@@ -807,21 +807,21 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_12.addWidget(self.instruction, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.pushButton_3 = QPushButton(self.page_settings)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setEnabled(True)
-        sizePolicy.setHeightForWidth(self.pushButton_3.sizePolicy().hasHeightForWidth())
-        self.pushButton_3.setSizePolicy(sizePolicy)
-        self.pushButton_3.setMinimumSize(QSize(200, 60))
-        self.pushButton_3.setMaximumSize(QSize(200, 60))
-        self.pushButton_3.setFont(font14)
-        self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.manual_btn = QPushButton(self.page_settings)
+        self.manual_btn.setObjectName(u"manual_btn")
+        self.manual_btn.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.manual_btn.sizePolicy().hasHeightForWidth())
+        self.manual_btn.setSizePolicy(sizePolicy)
+        self.manual_btn.setMinimumSize(QSize(200, 60))
+        self.manual_btn.setMaximumSize(QSize(200, 60))
+        self.manual_btn.setFont(font14)
+        self.manual_btn.setCursor(QCursor(Qt.PointingHandCursor))
         icon5 = QIcon()
         icon5.addFile(u"icons/24x24/cil-voice-over-record.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_3.setIcon(icon5)
-        self.pushButton_3.setIconSize(QSize(24, 24))
+        self.manual_btn.setIcon(icon5)
+        self.manual_btn.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_12.addWidget(self.pushButton_3, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.verticalLayout_12.addWidget(self.manual_btn, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.verticalSpacer_15 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -878,18 +878,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_13.addItem(self.verticalSpacer_11)
 
-        self.pushButton_4 = QPushButton(self.page_settings)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        sizePolicy.setHeightForWidth(self.pushButton_4.sizePolicy().hasHeightForWidth())
-        self.pushButton_4.setSizePolicy(sizePolicy)
-        self.pushButton_4.setMinimumSize(QSize(200, 60))
-        self.pushButton_4.setMaximumSize(QSize(200, 60))
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_4.setIcon(icon4)
-        self.pushButton_4.setIconSize(QSize(24, 24))
+        self.ok_btn3 = QPushButton(self.page_settings)
+        self.ok_btn3.setObjectName(u"ok_btn3")
+        sizePolicy.setHeightForWidth(self.ok_btn3.sizePolicy().hasHeightForWidth())
+        self.ok_btn3.setSizePolicy(sizePolicy)
+        self.ok_btn3.setMinimumSize(QSize(200, 60))
+        self.ok_btn3.setMaximumSize(QSize(200, 60))
+        self.ok_btn3.setFont(font)
+        self.ok_btn3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.ok_btn3.setIcon(icon4)
+        self.ok_btn3.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_13.addWidget(self.pushButton_4, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.verticalLayout_13.addWidget(self.ok_btn3, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -926,16 +926,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.label_2, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.pushButton_6 = QPushButton(self.page_settings)
-        self.pushButton_6.setObjectName(u"pushButton_6")
-        self.pushButton_6.setMinimumSize(QSize(200, 60))
-        self.pushButton_6.setMaximumSize(QSize(200, 60))
+        self.listCommands = QPushButton(self.page_settings)
+        self.listCommands.setObjectName(u"listCommands")
+        self.listCommands.setMinimumSize(QSize(200, 60))
+        self.listCommands.setMaximumSize(QSize(200, 60))
         icon6 = QIcon()
         icon6.addFile(u"icons/24x24/cil-comment-bubble.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_6.setIcon(icon6)
-        self.pushButton_6.setIconSize(QSize(24, 24))
+        self.listCommands.setIcon(icon6)
+        self.listCommands.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_7.addWidget(self.pushButton_6)
+        self.verticalLayout_7.addWidget(self.listCommands)
 
         self.verticalSpacer_19 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1089,7 +1089,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 880, 609))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 86, 43))
         sizePolicy1.setHeightForWidth(self.scrollAreaWidgetContents.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents.setSizePolicy(sizePolicy1)
         self.verticalLayout_14 = QVBoxLayout(self.scrollAreaWidgetContents)
@@ -1160,8 +1160,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.frame_size_grip)
 
-        self.frame_label_bottom.raise_()
-        self.frame_size_grip.raise_()
 
         self.verticalLayout_4.addWidget(self.frame_grip)
 
@@ -1178,7 +1176,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1207,23 +1205,23 @@ class Ui_MainWindow(object):
         self.btn_settings.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"P I R S", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0435\u0437\u0430\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d", None))
-        self.pushButton_2.setText("")
+        self.start_btn.setText("")
         self.site_title.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u043e\u0442\u043a\u0440\u044b\u0442\u0438\u044f \u0441\u0430\u0439\u0442\u0430 \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f:", None))
         self.site_link.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0441\u044b\u043b\u043a\u0430 \u043d\u0430 \u0441\u0430\u0439\u0442", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u0430\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u0430", None))
         self.warning_1.setText("")
-        self.pushButton.setText("")
+        self.ok_btn.setText("")
         self.folder_title.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043b\u044f \u043e\u0442\u043a\u0440\u044b\u0442\u0438\u044f \u043f\u0430\u043f\u043a\u0438 \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043f\u043e\u043b\u044f", None))
         self.folder_link.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043b\u043d\u044b\u0439 \u043f\u0443\u0442\u044c \u043a \u043f\u0430\u043f\u043a\u0435", None))
         self.command_link_2.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u0430\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u0430", None))
         self.warning_2.setText("")
-        self.pushButton_5.setText("")
+        self.ok_btn2.setText("")
         self.instruction.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f", None))
-        self.pushButton_3.setText("")
+        self.manual_btn.setText("")
         self.hot_word.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043c\u0435\u043d\u0430 \u0441\u043b\u043e\u0432\u0430 \u0430\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u0438 ", None))
-        self.pushButton_4.setText("")
+        self.ok_btn3.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a \u043a\u043e\u043c\u0430\u043d\u0434", None))
-        self.pushButton_6.setText("")
+        self.listCommands.setText("")
         self.volume.setText(QCoreApplication.translate("MainWindow", u"\u0413\u0440\u043e\u043c\u043a\u043e\u0441\u0442\u044c \u0434\u0438\u043d\u0430\u043c\u0438\u043a\u043e\u0432", None))
         self.label_4.setText("")
     # retranslateUi
