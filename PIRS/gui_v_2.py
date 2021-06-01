@@ -1,6 +1,6 @@
 from Assistant import Assistant
 from playsound import playsound
-from gui_new_concept_13 import *
+from main.interface import *
 from main.ui_functions import *
 from main.splash_screen import Ui_SplashScreen
 from pycaw.pycaw import AudioUtilities
@@ -37,7 +37,7 @@ class MainWindow(QMainWindow):
 
         # TRAY MENU
         self.tray_icon = QSystemTrayIcon(self)
-        self.tray_icon.setIcon(QtGui.QIcon(r"gui\icons\tray_logo.ico"))
+        self.tray_icon.setIcon(QtGui.QIcon(r"icons\16x16\tray_logo.ico"))
 
         show_action = QAction("Show", self)
         quit_action = QAction("Exit", self)
@@ -151,7 +151,7 @@ class MainWindow(QMainWindow):
             self.Pirs.changeName(newName)
     
     def manualStart(self):
-        playsound("audio/manual.mp3")
+        playsound("audio/manual.mp3", block=False)
 
     def changeVolume(self, value):
         sessions = AudioUtilities.GetAllSessions()
