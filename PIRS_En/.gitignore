@@ -1,0 +1,6 @@
+.idea/
+__pycache__/
+speech_model/
+main.py
+.venv/
+.vscode/
