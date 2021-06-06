@@ -4,3 +4,6 @@ speech_model/
 main.py
 .venv/
 .vscode/
+tulpa/deepspeech-0.9.3-models.pbmm
+tulpa/deepspeech-0.9.3-models.scorer
+tulpa/Lib/site-packages/PySide2/Qt5WebEngineCore.dll

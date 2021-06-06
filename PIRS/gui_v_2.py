@@ -1,5 +1,6 @@
 from Assistant import Assistant
-from gui_new_concept_13 import *
+from playsound import playsound
+from main.interface import *
 from main.ui_functions import *
 from main.splash_screen import Ui_SplashScreen
 from pycaw.pycaw import AudioUtilities
@@ -19,8 +20,8 @@ class MainWindow(QMainWindow):
         self.threadPirs = QtCore.QThread()
         self.Pirs = Assistant()
         self.Pirs.moveToThread(self.threadPirs)
-        self.ui.pushButton_2.clicked.connect(self.Pirs.voice_activation)
-        self.ui.pushButton_2.clicked.connect(self.modePirs)
+        self.ui.start_btn.clicked.connect(self.Pirs.voice_activation)
+        self.ui.start_btn.clicked.connect(self.modePirs)
         self.threadPirs.start()
 
         ## REMOVE ==> STANDARD TITLE BAR
@@ -36,7 +37,7 @@ class MainWindow(QMainWindow):
 
         # TRAY MENU
         self.tray_icon = QSystemTrayIcon(self)
-        self.tray_icon.setIcon(QtGui.QIcon(r"gui\icons\tray_logo.ico"))
+        self.tray_icon.setIcon(QtGui.QIcon(r"icons\16x16\tray_logo.ico"))
 
         show_action = QAction("Show", self)
         quit_action = QAction("Exit", self)
@@ -58,8 +59,6 @@ class MainWindow(QMainWindow):
         ## ==> START PAGE
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
 
-        ## ==> END ##
-
         ## PAGES
         ########################################################################
 
@@ -73,8 +72,8 @@ class MainWindow(QMainWindow):
         self.ui.btn_settings.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings))
 
         # PAGE 4
-        self.ui.pushButton_6.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_phrases))
-        self.ui.pushButton_6.clicked.connect(self.feedLabel)
+        self.ui.listCommands.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_phrases))
+        self.ui.listCommands.clicked.connect(self.feedLabel)
 
         # MOUSE CLICK HANDING
         def mouseClick(event):
@@ -91,9 +90,9 @@ class MainWindow(QMainWindow):
         self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
 
         # GET COMMANDS
-        self.ui.pushButton.clicked.connect(self.getCommandSite)
-        self.ui.pushButton_4.clicked.connect(self.getNewName)
-        self.ui.pushButton_5.clicked.connect(self.getCommandFolder)
+        self.ui.ok_btn.clicked.connect(self.getCommandSite)
+        self.ui.ok_btn2.clicked.connect(self.getCommandFolder)
+        self.ui.ok_btn3.clicked.connect(self.getNewName)
 
         # CHANGE VOLUME
         self.ui.horizontalSlider.setMaximum(100)
@@ -101,8 +100,9 @@ class MainWindow(QMainWindow):
         self.ui.progressBar.setValue(100)
         self.ui.horizontalSlider.valueChanged.connect(self.valueSpeaker)
         self.ui.horizontalSlider.valueChanged[int].connect(self.changeVolume)
-        
 
+        # MANUAL
+        self.ui.manual_btn.clicked.connect(self.manualStart)
 
         ## ==> LOAD DEFINITIONS
         ########################################################################
@@ -149,6 +149,9 @@ class MainWindow(QMainWindow):
             newName.lower()
             self.ui.editName.clear()
             self.Pirs.changeName(newName)
+    
+    def manualStart(self):
+        playsound("audio/manual.mp3", block=False)
 
     def changeVolume(self, value):
         sessions = AudioUtilities.GetAllSessions()
@@ -179,10 +182,12 @@ class MainWindow(QMainWindow):
     def modePirs(self):
         if self.Pirs.rc.flag:
             self.Pirs.rc.flag = False
+            playsound("audio/dezactivation.mp3", block=False)
             self.ui.label_6.setText("Дезактивирован")
             self.ui.label_6.setStyleSheet("color: rgb(98, 114, 164);")
         else:
             self.Pirs.rc.flag = True
+            playsound("audio/activation.mp3", block=False)
             self.ui.label_6.setText("Активирован")
             self.ui.label_6.setStyleSheet("color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));")
     
@@ -191,6 +196,7 @@ class MainWindow(QMainWindow):
         self.threadPirs.terminate()
         self.threadPirs.wait(250)
         self.close()
+        self.tray_icon.hide()
         self.Pirs.bye()
 
 # SPLASH SCREEN

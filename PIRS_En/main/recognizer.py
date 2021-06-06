@@ -5,6 +5,7 @@ import struct
 from math import sqrt
 import time
 from playsound import playsound
+from deepspeech import Model
 
 # Settings
 FORMAT = pyaudio.paInt16
@@ -17,15 +18,18 @@ SHORT_NORMALIZE = 1.0 / 32768.0
 Energy_speech = 100
 
 
+
 class Recognizer():
 
     def __init__(self):
         self.Threshold = 0
         self.hot_word = 'пирс'
         self.flag = False
+        ds = Model(r'F:\Project P\ProJect-PIRS\PIRS_En\tulpa\deepspeech-0.9.3-models.pbmm')
+        ds.enableExternalScorer(r'F:\Project P\ProJect-PIRS\PIRS_En\tulpa\deepspeech-0.9.3-models.scorer')
         # vosk
-        self.model = Model("speech_model")
-        self.rec = KaldiRecognizer(self.model, RATE)
+        #self.model = Model("speech_model")
+        #self.rec = KaldiRecognizer(self.model, RATE)
         # pyaudio
         self.audio = pyaudio.PyAudio()
         self.stream = self.audio.open(
@@ -76,9 +80,7 @@ class Recognizer():
                 end = time.time() + TIMEOUT_LENGTH / 1.2
             now = time.time()
             # vosk
-            if self.rec.AcceptWaveform(data):
-                text = json.loads(self.rec.Result())
-                task = text['text']
+            print(self.ds.stt(data))
         return task
 
     def start(self):

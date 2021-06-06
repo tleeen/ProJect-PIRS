@@ -8,8 +8,8 @@ from PySide2 import QtCore
 from main.recognizer import Recognizer
 
 # Phrases
-phrases_for_executing = ["Doing.mp3", "Will_be_done.mp3", "How_say_sir.mp3"]
-phrases_for_web_search = ["Finding_information 1.mp3", "Finding_information 2.mp3", "Request_accepted.mp3"]
+phrases_for_executing = ["doing.mp3", "will_be_done.mp3", "how_say_sir.mp3"]
+phrases_for_web_search = ["finding_information 1.mp3", "finding_information 2.mp3", "request_accepted.mp3"]
 search_tags = ("как", "кто такой", "кто такая", "что такое", "найди", "ищи", "найти")
 
 """ ---> Voice Assistant <--- """
@@ -67,7 +67,7 @@ class Assistant(QtCore.QObject):
             for tag in search_tags:
                 if tag in task:
                     return self.web_search(task)
-            playsound("audio/Repeat_please.mp3")
+            playsound("audio/repeat_please.mp3")
             new_task = self.rc.speech_to_text()
             if new_task != "":
                 self.cmd(new_task)
@@ -180,37 +180,37 @@ class Assistant(QtCore.QObject):
         return system("dpiscaling")
 
     def turn_off(self):
-        playsound("audio/Confirm_action.mp3")
+        playsound("audio/confirm_action.mp3")
         if self.speech_to_text() == "подтверждаю":
             self.random_phrase()
             return system("shutdown /s /t ")
         else:
-            return playsound("audio/How_say_sir.mp3")
+            return playsound("audio/how_say_sir.mp3")
 
     def refresh(self):
-        playsound("audio/Confirm_action.mp3")
+        playsound("audio/confirm_action.mp3")
         if self.speech_to_text() == "подтверждаю":
             self.random_phrase()
             return system("shutdown /r /t ")
         else:
-            return playsound("audio/How_say_sir.mp3")
+            return playsound("audio/how_say_sir.mp3")
 
     @staticmethod
     def greeting():
         current_time = datetime.now()
         if (current_time.hour >= 6) and (current_time.hour < 12):
-            playsound(r"audio/Good_morning.mp3", block=False)
+            playsound("audio/good_morning.mp3", block=False)
         elif (current_time.hour >= 12) and (current_time.hour < 18):
-            playsound(r"audio/Good_evening.mp3", block=False)
+            playsound("audio/good_evening.mp3", block=False)
         elif (current_time.hour >= 18) and (current_time.hour < 23):
-            playsound(r"audio/Good_afternoon.mp3", block=False)
+            playsound("audio/good_afternoon.mp3", block=False)
         else:
-            playsound(r"audio/Greetings_at_night.mp3", block=False)
+            playsound("audio/greetings_at_night.mp3", block=False)
     
     def changeName(self, name):
         self.rc.hot_word = name
 
     @staticmethod
     def bye():
-        playsound("audio/Goodbye.mp3")
+        playsound("audio/goodbye.mp3")
         quit(0)
